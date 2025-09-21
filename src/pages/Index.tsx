@@ -59,15 +59,19 @@ const Index = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <CyberButton variant="secondary" size="lg" className="font-mono tracking-wider">
-                <span className="mr-2">▶</span>
-                APPLY WITH DEVFOLIO
-                <span className="ml-2">→</span>
-              </CyberButton>
-              <CyberButton variant="ghost" size="lg" className="font-mono tracking-wider">
-                <span className="mr-2">↓</span>
-                GUIDELINES
-              </CyberButton>
+              <a href="/services">
+                <CyberButton variant="secondary" size="lg" className="font-mono tracking-wider">
+                  <span className="mr-2">▶</span>
+                  EXPLORE SERVICES
+                  <span className="ml-2">→</span>
+                </CyberButton>
+              </a>
+              <a href="/projects">
+                <CyberButton variant="ghost" size="lg" className="font-mono tracking-wider">
+                  <span className="mr-2">↓</span>
+                  VIEW PROJECTS
+                </CyberButton>
+              </a>
             </div>
           </div>
         </section>
@@ -78,9 +82,11 @@ const Index = () => {
         {/* Final CTA */}
         <section className="py-16 px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <CyberButton variant="cyber" size="xl" className="font-mono tracking-wider text-xl px-12">
-              INITIATE_NEURAL_HANDSHAKE
-            </CyberButton>
+            <a href="/contact">
+              <CyberButton variant="cyber" size="xl" className="font-mono tracking-wider text-xl px-12">
+                INITIATE_NEURAL_HANDSHAKE
+              </CyberButton>
+            </a>
           </div>
         </section>
       </main>
