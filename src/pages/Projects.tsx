@@ -28,48 +28,50 @@ const projects: Project[] = [
     title: 'TO BE REVEALED',
     category: 'COMING SOON',
     description: 'COMING SOON',
-    technologies: ['COMING SOON],
-    status: 'COMING SOON',
-    completion: 00,
+    technologies: ['COMING SOON'],
+    status: 'research', // Use a valid status
+    completion: 0,
     impact: 'COMING SOON',
-    client: 'SOMING SOON',
+    client: 'COMING SOON',
     year: '2025',
     metrics: {
-      performance: 00,
-      accuracy: 00,
-      efficiency: 00
+      performance: 0,
+      accuracy: 0,
+      efficiency: 0
     }
   },
-     id: 'AIZENERA-2',
+  {
+    id: 'AIZENERA-2',
     title: 'TO BE REVEALED',
     category: 'COMING SOON',
     description: 'COMING SOON',
-    technologies: ['COMING SOON],
+    technologies: ['COMING SOON'],
     status: 'COMING SOON',
-    completion: 00,
+    completion: 0,
     impact: 'COMING SOON',
-    client: 'SOMING SOON',
+    client: 'COMING SOON',
     year: '2025',
     metrics: {
-      performance: 00,
-      accuracy: 00,
-      efficiency: 00
+      performance: 0,
+      accuracy: 0,
+      efficiency: 0
     }
   },
-     id: 'AIZENERA-3',
+  {
+    id: 'AIZENERA-3',
     title: 'TO BE REVEALED',
     category: 'COMING SOON',
     description: 'COMING SOON',
-    technologies: ['COMING SOON],
+    technologies: ['COMING SOON'],
     status: 'COMING SOON',
-    completion: 00,
+    completion: 0,
     impact: 'COMING SOON',
-    client: 'SOMING SOON',
+    client: 'COMING SOON',
     year: '2025',
     metrics: {
-      performance: 00,
-      accuracy: 00,
-      efficiency: 00
+      performance: 0,
+      accuracy: 0,
+      efficiency: 0
     }
   },
 ];
@@ -256,9 +258,7 @@ const Projects = () => {
             </p>
           </div>
           <a href="/contact">
-            <CyberButton variant="cyber" size="lg" className="font-orbitron tracking-wider box-3d">
-              START YOUR PROJECT
-            </CyberButton>
+            <CyberButton variant="cyber" size="lg"
           </a>
         </div>
       </div>
