@@ -1,10 +1,12 @@
 import { Navigation } from '@/components/Navigation';
-import { SystemStatus } from '@/components/SystemStatus';
 import { CyberButton } from '@/components/ui/cyber-button';
-import { useState, useEffect } from 'react';
+import { CursorTrail } from '@/components/CursorTrail';
+import { Footer } from '@/components/Footer';
+import { useState } from 'react';
 
 interface ContactMethod {
   type: string;
+  label: string;
   value: string;
   status: 'active' | 'busy' | 'offline';
   responseTime: string;
@@ -13,28 +15,32 @@ interface ContactMethod {
 
 const contactMethods: ContactMethod[] = [
   {
-    type: 'NEURAL_LINK',
-    value: 'neural@aizenera.com',
+    type: 'email',
+    label: 'NEURAL LINK',
+    value: 'contact@aizenera.com',
     status: 'active',
     responseTime: '< 2 HOURS',
-    icon: '🧠'
+    icon: '📧'
   },
   {
-    type: 'QUANTUM_COMM',
-    value: '+1 (555) QUANTUM',
+    type: 'phone',
+    label: 'QUANTUM COMM',
+    value: '+1 (555) AI-ZENER',
     status: 'active',
     responseTime: '< 30 MINUTES',
-    icon: '⚡'
+    icon: '📞'
   },
   {
-    type: 'MATRIX_PORTAL',
-    value: 'discord.gg/aizenera',
+    type: 'instagram',
+    label: 'SOCIAL MATRIX',
+    value: '@aizenera_official',
     status: 'active',
     responseTime: 'REAL-TIME',
-    icon: '💬'
+    icon: '📷'
   },
   {
-    type: 'GITHUB_NEURAL',
+    type: 'github',
+    label: 'CODE NEURAL',
     value: 'github.com/aizenera',
     status: 'active',
     responseTime: '< 24 HOURS',
@@ -48,22 +54,10 @@ const Contact = () => {
     email: '',
     company: '',
     project: '',
-    message: '',
     budget: '',
-    timeline: ''
+    message: ''
   });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [activeUsers, setActiveUsers] = useState(1247);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveUsers(prev => prev + Math.floor(Math.random() * 5) - 2);
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const [activeUsers] = useState(1247);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -72,381 +66,233 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
+    console.log('Form submitted:', formData);
   };
 
-  const getStatusColor = (status: ContactMethod['status']) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'text-terminal-green border-terminal-green';
-      case 'busy': return 'text-terminal-amber border-terminal-amber';
-      case 'offline': return 'text-terminal-red border-terminal-red';
-      default: return 'text-muted-foreground border-muted';
+      case 'active': return 'text-terminal-green';
+      case 'busy': return 'text-cyber-yellow';
+      case 'offline': return 'text-muted-foreground';
+      default: return 'text-foreground';
     }
   };
 
   return (
-    <div className="min-h-screen bg-background matrix-bg relative overflow-x-hidden">
-      <SystemStatus />
+    <div className="min-h-screen bg-background relative">
+      <CursorTrail />
       <Navigation />
-
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 pt-20">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-8">
-            <div className="text-cyber-cyan font-mono text-sm mb-4 tracking-wider animate-fade-in-up">
-              CONTACT_PROTOCOL.exe
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold font-mono mb-6 animate-fade-in-up">
-              <span className="text-foreground">INITIATE</span>
-              <br />
-              <span className="inspire-glow">CONNECTION</span>
-            </h1>
-            <p className="text-cyber-cyan font-mono text-lg max-w-4xl mx-auto leading-relaxed animate-fade-in-up">
-              ESTABLISH NEURAL LINK WITH OUR AI ARCHITECTS. READY TO TRANSFORM YOUR IDEAS INTO REALITY.
-              <br />
-              MULTIPLE COMMUNICATION CHANNELS AVAILABLE FOR IMMEDIATE RESPONSE.
-            </p>
-          </div>
-
-          {/* Live Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-4 neon-border">
-              <div className="text-2xl font-bold text-cyber-yellow mb-2 neon-glow">
-                {activeUsers}
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">ACTIVE_CONNECTIONS</div>
-            </div>
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-4 neon-border">
-              <div className="text-2xl font-bold text-cyber-yellow mb-2 neon-glow">
-                98.7%
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">RESPONSE_RATE</div>
-            </div>
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-4 neon-border">
-              <div className="text-2xl font-bold text-cyber-yellow mb-2 neon-glow">
-                24/7
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">AVAILABILITY</div>
-            </div>
-          </div>
+      
+      <div className="container mx-auto px-4 py-20">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
+            NEURAL CONTACT
+          </h1>
+          <p className="text-xl font-tech text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+            Ready to revolutionize your business with AI? Connect with our neural network specialists.
+          </p>
         </div>
-      </section>
 
-      {/* Contact Methods */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-cyber-cyan font-mono text-sm mb-4 tracking-wider">
-              COMMUNICATION_CHANNELS
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-mono mb-6">
-              <span className="text-foreground">NEURAL</span>{' '}
-              <span className="text-cyber-cyan neon-glow">PATHWAYS</span>
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          {/* Contact Methods */}
+          <div>
+            <h2 className="text-2xl font-orbitron font-bold text-cyber-yellow mb-8">
+              COMMUNICATION CHANNELS
             </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {contactMethods.map((method, index) => (
-              <div
-                key={method.type}
-                className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-6 neon-border hover:shadow-[0_0_30px_hsl(var(--primary)/0.3)] transition-all duration-500 cursor-pointer transform hover:scale-105 animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="text-center mb-4">
-                  <div className="text-4xl mb-3 animate-float">{method.icon}</div>
-                  <div className={`text-xs font-mono px-2 py-1 border rounded inline-flex items-center gap-2 ${getStatusColor(method.status)}`}>
-                    <div className={`w-2 h-2 rounded-full ${
-                      method.status === 'active' ? 'bg-terminal-green' :
-                      method.status === 'busy' ? 'bg-terminal-amber' : 'bg-terminal-red'
-                    } animate-pulse`}></div>
-                    {method.status.toUpperCase()}
+            
+            <div className="space-y-6 mb-8">
+              {contactMethods.map((method, index) => (
+                <div key={index} className="box-3d p-6 rounded-lg backdrop-blur-sm hover:border-cyber-cyan/50 transition-all duration-300">
+                  <div className="flex items-center justify-between mb-3">
+                    <div className="flex items-center">
+                      <span className="text-2xl mr-4">{method.icon}</span>
+                      <div>
+                        <h3 className="font-orbitron font-semibold text-cyber-cyan">{method.label}</h3>
+                        <p className="font-tech text-sm text-foreground/80">{method.value}</p>
+                      </div>
+                    </div>
+                    <div className={`font-tech text-xs font-semibold ${getStatusColor(method.status)}`}>
+                      {method.status.toUpperCase()}
+                    </div>
+                  </div>
+                  <div className="text-muted-foreground font-tech text-xs">
+                    RESPONSE TIME: {method.responseTime}
                   </div>
                 </div>
-
-                <div className="space-y-3">
-                  <h3 className="text-lg font-bold font-mono text-cyber-cyan neon-glow">
-                    {method.type}
-                  </h3>
-                  <div className="text-sm text-muted-foreground font-mono">
-                    {method.value}
-                  </div>
-                  
-                  <div className="flex justify-between text-xs font-mono pt-3 border-t border-cyber-cyan/20">
-                    <span className="text-muted-foreground">RESPONSE:</span>
-                    <span className="text-cyber-yellow">{method.responseTime}</span>
-                  </div>
-                </div>
-
-                <CyberButton variant="terminal" className="w-full mt-4 font-mono text-xs">
-                  CONNECT_NOW
-                </CyberButton>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-20 px-4 bg-card/20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-cyber-cyan font-mono text-sm mb-4 tracking-wider">
-              PROJECT_BRIEFING_FORM
+              ))}
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-mono mb-6">
-              <span className="text-foreground">NEURAL</span>{' '}
-              <span className="text-cyber-cyan neon-glow">HANDSHAKE</span>
-            </h2>
-            <p className="text-muted-foreground font-mono">
-              Initialize secure communication channel for project discussion.
-            </p>
+
+            {/* Live Stats */}
+            <div className="box-3d p-6 rounded-lg backdrop-blur-sm">
+              <h3 className="font-orbitron font-semibold text-cyber-cyan mb-4">SYSTEM STATUS</h3>
+              <div className="space-y-3">
+                <div className="flex justify-between items-center">
+                  <span className="font-tech text-sm text-foreground/80">ACTIVE USERS</span>
+                  <span className="font-tech text-sm font-semibold text-terminal-green">{activeUsers.toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-tech text-sm text-foreground/80">SYSTEM STATUS</span>
+                  <span className="font-tech text-sm font-semibold text-terminal-green">OPERATIONAL</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="font-tech text-sm text-foreground/80">RESPONSE RATE</span>
+                  <span className="font-tech text-sm font-semibold text-cyber-cyan">98.7%</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+          {/* Contact Form */}
+          <div>
+            <h2 className="text-2xl font-orbitron font-bold text-cyber-yellow mb-8">
+              NEURAL HANDSHAKE PROTOCOL
+            </h2>
+            
+            <form onSubmit={handleSubmit} className="box-3d p-8 rounded-lg backdrop-blur-sm">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-cyber-cyan font-mono text-sm mb-2 tracking-wider">
-                    NAME_IDENTIFIER*
+                  <label className="block font-tech text-sm font-semibold text-cyber-cyan mb-2">
+                    NAME_ID *
                   </label>
                   <input
                     type="text"
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
+                    className="w-full bg-background/50 border border-border rounded px-4 py-3 font-tech text-sm text-foreground focus:border-cyber-cyan focus:outline-none transition-colors"
+                    placeholder="Enter your designation"
                     required
-                    className="w-full bg-card/50 border border-cyber-cyan/30 p-3 font-mono text-foreground focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-all duration-300"
-                    placeholder="Enter your neural signature..."
                   />
                 </div>
-
                 <div>
-                  <label className="block text-cyber-cyan font-mono text-sm mb-2 tracking-wider">
-                    EMAIL_PROTOCOL*
+                  <label className="block font-tech text-sm font-semibold text-cyber-cyan mb-2">
+                    NEURAL_EMAIL *
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    className="w-full bg-background/50 border border-border rounded px-4 py-3 font-tech text-sm text-foreground focus:border-cyber-cyan focus:outline-none transition-colors"
+                    placeholder="your@email.com"
                     required
-                    className="w-full bg-card/50 border border-cyber-cyan/30 p-3 font-mono text-foreground focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-all duration-300"
-                    placeholder="neural@yourcompany.com"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid md:grid-cols-2 gap-6 mb-6">
                 <div>
-                  <label className="block text-cyber-cyan font-mono text-sm mb-2 tracking-wider">
-                    COMPANY_ENTITY
+                  <label className="block font-tech text-sm font-semibold text-cyber-cyan mb-2">
+                    ORGANIZATION
                   </label>
                   <input
                     type="text"
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full bg-card/50 border border-cyber-cyan/30 p-3 font-mono text-foreground focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-all duration-300"
-                    placeholder="Your organization name..."
+                    className="w-full bg-background/50 border border-border rounded px-4 py-3 font-tech text-sm text-foreground focus:border-cyber-cyan focus:outline-none transition-colors"
+                    placeholder="Your company name"
                   />
                 </div>
-
                 <div>
-                  <label className="block text-cyber-cyan font-mono text-sm mb-2 tracking-wider">
-                    PROJECT_TYPE*
+                  <label className="block font-tech text-sm font-semibold text-cyber-cyan mb-2">
+                    PROJECT_TYPE
                   </label>
                   <select
                     name="project"
                     value={formData.project}
                     onChange={handleInputChange}
-                    required
-                    className="w-full bg-card/50 border border-cyber-cyan/30 p-3 font-mono text-foreground focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-all duration-300"
+                    className="w-full bg-background/50 border border-border rounded px-4 py-3 font-tech text-sm text-foreground focus:border-cyber-cyan focus:outline-none transition-colors"
                   >
-                    <option value="">Select project type...</option>
+                    <option value="">Select project type</option>
                     <option value="neural-training">Neural Training</option>
                     <option value="ai-consulting">AI Consulting</option>
-                    <option value="custom-development">Custom Development</option>
-                    <option value="quantum-computing">Quantum Computing</option>
-                    <option value="other">Other</option>
+                    <option value="quantum-ai">Quantum AI</option>
+                    <option value="custom-solution">Custom Solution</option>
                   </select>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <label className="block text-cyber-cyan font-mono text-sm mb-2 tracking-wider">
-                    BUDGET_ALLOCATION
-                  </label>
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleInputChange}
-                    className="w-full bg-card/50 border border-cyber-cyan/30 p-3 font-mono text-foreground focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-all duration-300"
-                  >
-                    <option value="">Select budget range...</option>
-                    <option value="5k-15k">$5K - $15K</option>
-                    <option value="15k-50k">$15K - $50K</option>
-                    <option value="50k-100k">$50K - $100K</option>
-                    <option value="100k+">$100K+</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-cyber-cyan font-mono text-sm mb-2 tracking-wider">
-                    TIMELINE_URGENCY
-                  </label>
-                  <select
-                    name="timeline"
-                    value={formData.timeline}
-                    onChange={handleInputChange}
-                    className="w-full bg-card/50 border border-cyber-cyan/30 p-3 font-mono text-foreground focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-all duration-300"
-                  >
-                    <option value="">Select timeline...</option>
-                    <option value="asap">ASAP (Rush Order)</option>
-                    <option value="1-month">1 Month</option>
-                    <option value="3-months">3 Months</option>
-                    <option value="6-months">6 Months</option>
-                    <option value="flexible">Flexible</option>
-                  </select>
-                </div>
+              <div className="mb-6">
+                <label className="block font-tech text-sm font-semibold text-cyber-cyan mb-2">
+                  BUDGET_ALLOCATION
+                </label>
+                <select
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleInputChange}
+                  className="w-full bg-background/50 border border-border rounded px-4 py-3 font-tech text-sm text-foreground focus:border-cyber-cyan focus:outline-none transition-colors"
+                >
+                  <option value="">Select budget range</option>
+                  <option value="5k-10k">$5,000 - $10,000</option>
+                  <option value="10k-25k">$10,000 - $25,000</option>
+                  <option value="25k-50k">$25,000 - $50,000</option>
+                  <option value="50k+">$50,000+</option>
+                </select>
               </div>
 
-              <div>
-                <label className="block text-cyber-cyan font-mono text-sm mb-2 tracking-wider">
-                  PROJECT_DESCRIPTION*
+              <div className="mb-8">
+                <label className="block font-tech text-sm font-semibold text-cyber-cyan mb-2">
+                  PROJECT_DETAILS *
                 </label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleInputChange}
-                  required
                   rows={6}
-                  className="w-full bg-card/50 border border-cyber-cyan/30 p-3 font-mono text-foreground focus:border-cyber-cyan focus:outline-none focus:shadow-[0_0_15px_hsl(var(--primary)/0.3)] transition-all duration-300 resize-none"
-                  placeholder="Describe your AI project requirements, objectives, and expected outcomes..."
-                />
+                  className="w-full bg-background/50 border border-border rounded px-4 py-3 font-tech text-sm text-foreground focus:border-cyber-cyan focus:outline-none transition-colors resize-none"
+                  placeholder="Describe your AI project requirements, goals, and technical specifications..."
+                  required
+                ></textarea>
               </div>
 
-              <div className="text-center">
-                <CyberButton 
-                  type="submit" 
-                  variant="cyber" 
-                  size="lg" 
-                  className="font-mono tracking-wider"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <span className="animate-pulse mr-2">⚡</span>
-                      TRANSMITTING...
-                    </>
-                  ) : (
-                    'INITIATE_NEURAL_HANDSHAKE'
-                  )}
-                </CyberButton>
-              </div>
-            </form>
-          ) : (
-            <div className="text-center bg-card/50 border border-terminal-green/50 p-12 neon-border animate-fade-in-up">
-              <div className="text-6xl mb-6 animate-float">✓</div>
-              <h3 className="text-2xl font-bold font-mono text-terminal-green mb-4 neon-glow">
-                NEURAL_HANDSHAKE_SUCCESSFUL
-              </h3>
-              <p className="text-cyber-cyan font-mono mb-6">
-                Your project briefing has been successfully transmitted to our neural architects.
-                <br />
-                Expected response time: &lt; 2 hours during business cycles.
-              </p>
               <CyberButton 
-                variant="terminal" 
-                onClick={() => setSubmitted(false)}
-                className="font-mono"
+                type="submit" 
+                variant="cyber" 
+                size="lg" 
+                className="w-full font-orbitron tracking-wider box-3d"
               >
-                SEND_ANOTHER_TRANSMISSION
+                INITIATE_NEURAL_HANDSHAKE
               </CyberButton>
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* Office Information */}
-      <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-cyber-cyan font-mono text-sm mb-4 tracking-wider">
-              PHYSICAL_COORDINATES
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-mono mb-6">
-              <span className="text-foreground">NEURAL</span>{' '}
-              <span className="text-cyber-cyan neon-glow">HEADQUARTERS</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-6 neon-border text-center">
-              <div className="text-4xl mb-4 animate-float">🌐</div>
-              <h3 className="text-lg font-bold font-mono text-cyber-cyan mb-3">
-                GLOBAL_HQ
-              </h3>
-              <div className="text-sm text-muted-foreground font-mono space-y-1">
-                <div>Neural Valley</div>
-                <div>San Francisco, CA</div>
-                <div>United States</div>
-              </div>
-            </div>
-
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-6 neon-border text-center">
-              <div className="text-4xl mb-4 animate-float">🕒</div>
-              <h3 className="text-lg font-bold font-mono text-cyber-cyan mb-3">
-                OPERATION_HOURS
-              </h3>
-              <div className="text-sm text-muted-foreground font-mono space-y-1">
-                <div>24/7 AI Monitoring</div>
-                <div>Human Support:</div>
-                <div>9AM - 6PM PST</div>
-              </div>
-            </div>
-
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-6 neon-border text-center">
-              <div className="text-4xl mb-4 animate-float">🔒</div>
-              <h3 className="text-lg font-bold font-mono text-cyber-cyan mb-3">
-                SECURITY_LEVEL
-              </h3>
-              <div className="text-sm text-muted-foreground font-mono space-y-1">
-                <div>Quantum Encrypted</div>
-                <div>Neural Verified</div>
-                <div>ISO 27001 Certified</div>
-              </div>
-            </div>
+            </form>
           </div>
         </div>
-      </section>
 
-      {/* Matrix Background Effect */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-cyber-cyan font-mono text-xs animate-matrix-rain"
-              style={{
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-              }}
-            >
-              {Math.random().toString(36).substring(2, 15)}
+        {/* Social Links */}
+        <div className="text-center">
+          <div className="box-3d p-8 rounded-lg backdrop-blur-sm">
+            <h3 className="text-2xl font-orbitron font-bold text-cyber-cyan mb-6">
+              CONNECT WITH OUR NEURAL NETWORK
+            </h3>
+            <div className="flex justify-center space-x-6">
+              <a 
+                href="https://instagram.com/aizenera_official" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <CyberButton variant="ghost" size="lg" className="font-tech box-3d">
+                  <span className="mr-3">📷</span>
+                  INSTAGRAM
+                </CyberButton>
+              </a>
+              <a 
+                href="mailto:contact@aizenera.com"
+                className="group"
+              >
+                <CyberButton variant="ghost" size="lg" className="font-tech box-3d">
+                  <span className="mr-3">📧</span>
+                  EMAIL
+                </CyberButton>
+              </a>
             </div>
-          ))}
+          </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

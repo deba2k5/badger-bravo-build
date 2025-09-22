@@ -4,10 +4,15 @@ import { ServiceModules } from '@/components/ServiceModules';
 import { CyberButton } from '@/components/ui/cyber-button';
 import { ThreeScene } from '@/components/ThreeScene';
 import { HeroCyberGrid } from '@/components/HeroCyberGrid';
+import { CursorTrail } from '@/components/CursorTrail';
+import { Footer } from '@/components/Footer';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
+      {/* Cursor Trail */}
+      <CursorTrail />
+      
       {/* Three.js Background */}
       <ThreeScene />
       
@@ -24,8 +29,8 @@ const Index = () => {
           <div className="max-w-6xl mx-auto text-center">
             {/* AI Badge */}
             <div className="mb-8 flex justify-center">
-              <div className="bg-cyber-cyan/10 border border-cyber-cyan/30 px-4 py-2 rounded-full backdrop-blur-sm">
-                <span className="text-cyber-cyan font-mono text-sm tracking-wider">
+              <div className="box-3d px-6 py-3 rounded-lg backdrop-blur-sm">
+                <span className="text-cyber-cyan font-orbitron text-sm font-semibold tracking-wider">
                   ⚡ NEXT-GEN AI PLATFORM ⚡
                 </span>
               </div>
@@ -33,23 +38,23 @@ const Index = () => {
             
             {/* Main Heading */}
             <div className="mb-12">
-              <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold font-mono leading-tight mb-6">
+              <h1 className="text-4xl md:text-6xl lg:text-8xl font-bold font-orbitron leading-tight mb-6">
                 <span className="text-foreground">INNOVATE TO</span>
               </h1>
-              <div className="text-6xl md:text-8xl lg:text-9xl font-black font-mono inspire-glow animate-pulse-glow mb-6 relative">
-                <div className="absolute inset-0 blur-xl bg-gradient-to-r from-cyber-cyan via-cyber-yellow to-cyber-cyan opacity-50 animate-pulse"></div>
-                <div className="relative z-10">INSPIRE</div>
+              <div className="text-6xl md:text-8xl lg:text-9xl font-black font-orbitron inspire-glow mb-6 relative">
+                INSPIRE
               </div>
-              <div className="text-4xl md:text-6xl lg:text-7xl font-bold font-mono text-cyber-yellow glow-text">
+              <div className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron text-cyber-yellow">
                 2025
               </div>
             </div>
 
-            {/* Subtitle with animated background */}
+            {/* Subtitle with 3D effect */}
             <div className="relative mb-12">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyber-cyan/20 to-transparent blur-sm"></div>
-              <div className="relative text-cyber-cyan font-mono text-xl md:text-2xl tracking-wider bg-background/50 backdrop-blur-sm border border-cyber-cyan/30 rounded-lg py-4 px-8 inline-block">
-                ⟨ NEXT AI REVOLUTION ⟩
+              <div className="box-3d py-4 px-8 rounded-lg backdrop-blur-sm inline-block">
+                <span className="text-cyber-cyan font-orbitron text-xl md:text-2xl font-semibold tracking-wider">
+                  ⟨ NEXT AI REVOLUTION ⟩
+                </span>
               </div>
             </div>
 
@@ -58,25 +63,25 @@ const Index = () => {
               <CountdownTimer />
             </div>
 
-            {/* Enhanced Description */}
+            {/* Enhanced Description with 3D boxes */}
             <div className="max-w-5xl mx-auto mb-16 space-y-6">
               <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-card/30 backdrop-blur-sm border border-cyber-cyan/30 p-6 rounded-lg">
-                  <div className="text-cyber-cyan font-mono text-lg mb-2">⚡ NEURAL</div>
-                  <p className="text-cyber-cyan/80 font-mono text-sm">
-                    Advanced AI training protocols for next-gen intelligence
+                <div className="box-3d p-6 rounded-lg backdrop-blur-sm hover:border-cyber-cyan/50 transition-all duration-300">
+                  <div className="text-cyber-cyan font-orbitron text-lg font-semibold mb-2">⚡ NEURAL</div>
+                  <p className="text-foreground/80 font-tech text-sm leading-relaxed">
+                    Advanced AI training protocols for next-gen intelligence systems
                   </p>
                 </div>
-                <div className="bg-card/30 backdrop-blur-sm border border-cyber-yellow/30 p-6 rounded-lg">
-                  <div className="text-cyber-yellow font-mono text-lg mb-2">🚀 DEPLOY</div>
-                  <p className="text-cyber-yellow/80 font-mono text-sm">
-                    Seamless integration with quantum-speed deployment
+                <div className="box-3d p-6 rounded-lg backdrop-blur-sm hover:border-cyber-yellow/50 transition-all duration-300">
+                  <div className="text-cyber-yellow font-orbitron text-lg font-semibold mb-2">🚀 DEPLOY</div>
+                  <p className="text-foreground/80 font-tech text-sm leading-relaxed">
+                    Seamless integration with quantum-speed deployment solutions
                   </p>
                 </div>
-                <div className="bg-card/30 backdrop-blur-sm border border-terminal-green/30 p-6 rounded-lg">
-                  <div className="text-terminal-green font-mono text-lg mb-2">🎯 DOMINATE</div>
-                  <p className="text-terminal-green/80 font-mono text-sm">
-                    Command the digital ecosystem with AI supremacy
+                <div className="box-3d p-6 rounded-lg backdrop-blur-sm hover:border-terminal-green/50 transition-all duration-300">
+                  <div className="text-terminal-green font-orbitron text-lg font-semibold mb-2">🎯 DOMINATE</div>
+                  <p className="text-foreground/80 font-tech text-sm leading-relaxed">
+                    Command the digital ecosystem with AI supremacy technology
                   </p>
                 </div>
               </div>
@@ -85,9 +90,8 @@ const Index = () => {
             {/* Enhanced CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
               <a href="/services" className="group">
-                <CyberButton variant="secondary" size="lg" className="font-mono tracking-wider relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyber-cyan/20 via-transparent to-cyber-cyan/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  <span className="relative z-10 flex items-center">
+                <CyberButton variant="secondary" size="lg" className="font-orbitron tracking-wider box-3d">
+                  <span className="flex items-center">
                     <span className="mr-3">▶</span>
                     EXPLORE SERVICES
                     <span className="ml-3">→</span>
@@ -95,9 +99,8 @@ const Index = () => {
                 </CyberButton>
               </a>
               <a href="/projects" className="group">
-                <CyberButton variant="ghost" size="lg" className="font-mono tracking-wider relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyber-yellow/20 via-transparent to-cyber-yellow/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
-                  <span className="relative z-10 flex items-center">
+                <CyberButton variant="ghost" size="lg" className="font-orbitron tracking-wider box-3d">
+                  <span className="flex items-center">
                     <span className="mr-3">⚡</span>
                     VIEW PROJECTS
                     <span className="ml-3">⚡</span>
@@ -113,20 +116,18 @@ const Index = () => {
 
         {/* Enhanced Final CTA */}
         <section className="py-20 px-4 text-center relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-cyber-cyan/5 to-transparent"></div>
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="mb-8">
-              <h3 className="text-3xl md:text-4xl font-mono font-bold text-cyber-cyan mb-4">
+              <h3 className="text-3xl md:text-4xl font-orbitron font-bold text-cyber-cyan mb-4">
                 READY TO TRANSCEND?
               </h3>
-              <p className="text-cyber-cyan/80 font-mono text-lg tracking-wider">
+              <p className="text-foreground/80 font-tech text-lg tracking-wider">
                 Join the neural revolution and unlock infinite possibilities
               </p>
             </div>
             <a href="/contact" className="group inline-block">
-              <CyberButton variant="cyber" size="xl" className="font-mono tracking-wider text-xl px-16 py-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-cyber-cyan via-cyber-yellow to-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <span className="relative z-10 flex items-center">
+              <CyberButton variant="cyber" size="xl" className="font-orbitron tracking-wider text-xl px-16 py-6 box-3d">
+                <span className="flex items-center">
                   <span className="mr-4">🧠</span>
                   INITIATE_NEURAL_HANDSHAKE
                   <span className="ml-4">🧠</span>
@@ -135,6 +136,9 @@ const Index = () => {
             </a>
           </div>
         </section>
+
+        {/* Footer */}
+        <Footer />
       </main>
 
       {/* Enhanced Animated Background Elements */}

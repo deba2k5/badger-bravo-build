@@ -1,7 +1,8 @@
 import { Navigation } from '@/components/Navigation';
-import { SystemStatus } from '@/components/SystemStatus';
 import { CyberButton } from '@/components/ui/cyber-button';
-import { useState, useEffect } from 'react';
+import { CursorTrail } from '@/components/CursorTrail';
+import { Footer } from '@/components/Footer';
+import { useState } from 'react';
 
 interface Service {
   id: string;
@@ -49,290 +50,171 @@ const services: Service[] = [
       'Scalability Planning',
       'ROI Analysis'
     ],
-    pricing: '15000',
+    pricing: '5999',
     icon: '⚡',
     status: 'available',
     complexity: 95,
-    duration: '8_WEEKS'
-  },
-  {
-    id: 'neural-development',
-    title: 'NEURAL DEVELOPMENT',
-    subtitle: 'CUSTOM_AI_SOLUTIONS',
-    description: 'End-to-end AI solution development from prototype to production deployment with ongoing support.',
-    features: [
-      'Custom AI Model Design',
-      'API Development',
-      'Cloud Deployment',
-      'Monitoring & Analytics',
-      'Continuous Learning',
-      '24/7 Support'
-    ],
-    pricing: '25000',
-    icon: '🚀',
-    status: 'limited',
-    complexity: 98,
     duration: '16_WEEKS'
   },
   {
     id: 'quantum-ai',
     title: 'QUANTUM AI',
     subtitle: 'NEXT_GEN_COMPUTING',
-    description: 'Cutting-edge quantum-enhanced AI algorithms for solving complex optimization and cryptographic challenges.',
+    description: 'Cutting-edge quantum-enhanced AI algorithms for solving complex optimization problems.',
     features: [
+      'Quantum Algorithm Design',
+      'Hybrid Computing Models',
+      'Optimization Solutions',
       'Quantum Machine Learning',
-      'Optimization Algorithms',
-      'Cryptographic Security',
-      'Parallel Processing',
-      'Research Collaboration',
-      'Patent Support'
+      'Error Correction',
+      'Performance Analysis'
     ],
-    pricing: 'CUSTOM',
-    icon: '⚛️',
-    status: 'coming-soon',
-    complexity: 100,
-    duration: 'TBD'
+    pricing: '9999',
+    icon: '🔮',
+    status: 'limited',
+    complexity: 98,
+    duration: '20_WEEKS'
   }
 ];
 
 const Services = () => {
-  const [selectedService, setSelectedService] = useState<string | null>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [metrics, setMetrics] = useState({
-    activeProjects: 47,
-    successRate: 98.5,
-    clientSatisfaction: 99.2,
-    deployedModels: 156
-  });
+  const [expandedService, setExpandedService] = useState<string | null>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % services.length);
-      
-      setMetrics(prev => ({
-        ...prev,
-        activeProjects: prev.activeProjects + Math.floor(Math.random() * 2),
-        deployedModels: prev.deployedModels + Math.floor(Math.random() * 3)
-      }));
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const getStatusColor = (status: Service['status']) => {
+  const getStatusColor = (status: string) => {
     switch (status) {
-      case 'available': return 'text-terminal-green border-terminal-green';
-      case 'limited': return 'text-terminal-amber border-terminal-amber';
-      case 'coming-soon': return 'text-terminal-blue border-terminal-blue';
-      default: return 'text-muted-foreground border-muted';
+      case 'available': return 'text-terminal-green';
+      case 'limited': return 'text-cyber-yellow';
+      case 'coming-soon': return 'text-cyber-cyan';
+      default: return 'text-foreground';
     }
   };
 
   return (
-    <div className="min-h-screen bg-background matrix-bg relative overflow-x-hidden">
-      <SystemStatus />
+    <div className="min-h-screen bg-background relative">
+      <CursorTrail />
       <Navigation />
-
-      {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center px-4 pt-20">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-8">
-            <div className="text-cyber-cyan font-mono text-sm mb-4 tracking-wider animate-fade-in-up">
-              SERVICES_MATRIX.exe
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold font-mono mb-6 animate-fade-in-up">
-              <span className="text-foreground">AI SOLUTIONS</span>
-              <br />
-              <span className="inspire-glow">DEPLOYED</span>
-            </h1>
-            <p className="text-cyber-cyan font-mono text-lg max-w-4xl mx-auto leading-relaxed animate-fade-in-up">
-              COMPREHENSIVE AI SERVICES FROM NEURAL NETWORK TRAINING TO QUANTUM-ENHANCED SOLUTIONS.
-              <br />
-              TRANSFORM YOUR BUSINESS WITH CUTTING-EDGE ARTIFICIAL INTELLIGENCE.
-            </p>
-          </div>
-
-          {/* Service Metrics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-4 neon-border">
-              <div className="text-2xl font-bold text-cyber-yellow mb-1 neon-glow">
-                {metrics.activeProjects}
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">ACTIVE_PROJECTS</div>
-            </div>
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-4 neon-border">
-              <div className="text-2xl font-bold text-cyber-yellow mb-1 neon-glow">
-                {metrics.successRate}%
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">SUCCESS_RATE</div>
-            </div>
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-4 neon-border">
-              <div className="text-2xl font-bold text-cyber-yellow mb-1 neon-glow">
-                {metrics.clientSatisfaction}%
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">CLIENT_SATISFACTION</div>
-            </div>
-            <div className="bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-4 neon-border">
-              <div className="text-2xl font-bold text-cyber-yellow mb-1 neon-glow">
-                {metrics.deployedModels}
-              </div>
-              <div className="text-xs text-muted-foreground font-mono">DEPLOYED_MODELS</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Grid */}
-      <section className="py-20 px-4">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <div className="text-cyber-cyan font-mono text-sm mb-4 tracking-wider">
-              AVAILABLE_PROTOCOLS
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold font-mono mb-6">
-              <span className="text-foreground">SERVICE</span>{' '}
-              <span className="text-cyber-cyan neon-glow">ARCHITECTURE</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={service.id}
-                className={`bg-card/50 backdrop-blur-sm border border-cyber-cyan/30 p-8 neon-border transition-all duration-500 cursor-pointer hover:shadow-[0_0_40px_hsl(var(--primary)/0.4)] transform hover:scale-[1.02] ${
-                  selectedService === service.id ? 'shadow-[0_0_40px_hsl(var(--primary)/0.4)] scale-[1.02]' : ''
-                } ${activeIndex === index ? 'ring-2 ring-cyber-cyan/50' : ''}`}
-                onClick={() => setSelectedService(selectedService === service.id ? null : service.id)}
-              >
-                {/* Service Header */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className="text-4xl animate-float">{service.icon}</div>
-                  <div className={`text-xs font-mono px-3 py-1 border rounded ${getStatusColor(service.status)}`}>
-                    {service.status.replace('-', '_').toUpperCase()}
-                  </div>
-                </div>
-
-                {/* Service Info */}
-                <div className="mb-6">
-                  <h3 className="text-2xl font-bold font-mono text-cyber-cyan mb-2 neon-glow">
-                    {service.title}
-                  </h3>
-                  <div className="text-sm text-cyber-yellow font-mono mb-4">
-                    {service.subtitle}
-                  </div>
-                  <p className="text-sm text-muted-foreground font-mono leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Complexity Bar */}
-                <div className="mb-6">
-                  <div className="flex justify-between text-xs font-mono mb-2">
-                    <span className="text-muted-foreground">COMPLEXITY</span>
-                    <span className="text-cyber-yellow">{service.complexity}%</span>
-                  </div>
-                  <div className="w-full bg-muted/20 h-2 rounded">
-                    <div 
-                      className="bg-gradient-to-r from-cyber-cyan to-cyber-yellow h-2 rounded transition-all duration-1000"
-                      style={{ width: `${service.complexity}%` }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Expandable Features */}
-                {selectedService === service.id && (
-                  <div className="mb-6 animate-fade-in-up">
-                    <div className="text-xs text-cyber-cyan font-mono mb-3 tracking-wider">
-                      FEATURES_INCLUDED:
-                    </div>
-                    <div className="grid grid-cols-1 gap-2">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-center text-xs font-mono">
-                          <span className="text-terminal-green mr-2">▶</span>
-                          <span className="text-muted-foreground">{feature}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Pricing and Duration */}
-                <div className="flex justify-between items-center mb-6">
-                  <div>
-                    <div className="text-xs text-muted-foreground font-mono">INVESTMENT</div>
-                    <div className="text-xl font-bold text-cyber-yellow font-mono">
-                      {service.pricing === 'CUSTOM' ? 'CUSTOM' : `$${service.pricing}`}
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-xs text-muted-foreground font-mono">DURATION</div>
-                    <div className="text-sm font-bold text-cyber-cyan font-mono">
-                      {service.duration}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Action Button */}
-                <CyberButton 
-                  variant={service.status === 'available' ? 'cyber' : 'terminal'} 
-                  className="w-full font-mono text-xs"
-                  disabled={service.status === 'coming-soon'}
-                >
-                  {service.status === 'available' ? 'INITIATE_PROJECT' :
-                   service.status === 'limited' ? 'REQUEST_ACCESS' :
-                   'NOTIFY_WHEN_READY'}
-                </CyberButton>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact CTA */}
-      <section className="py-20 px-4 bg-card/20">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="text-cyber-cyan font-mono text-sm mb-4 tracking-wider">
-            READY_TO_DEPLOY?
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold font-mono mb-8">
-            <span className="text-foreground">START YOUR</span>{' '}
-            <span className="text-cyber-cyan neon-glow">AI JOURNEY</span>
-          </h2>
-          
-          <p className="text-lg font-mono leading-relaxed text-muted-foreground mb-8">
-            Connect with our neural architects to discuss your AI implementation strategy.
-            Every project begins with understanding your unique challenges and objectives.
+      
+      <div className="container mx-auto px-4 py-20">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
+            AI SERVICES
+          </h1>
+          <p className="text-xl font-tech text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+            Transform your business with our cutting-edge AI solutions and neural network technologies.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CyberButton variant="cyber" size="lg" className="font-mono tracking-wider">
-              SCHEDULE_CONSULTATION
-            </CyberButton>
-            <CyberButton variant="ghost" size="lg" className="font-mono tracking-wider">
-              VIEW_PORTFOLIO
-            </CyberButton>
-          </div>
         </div>
-      </section>
 
-      {/* Matrix Background Effect */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute text-cyber-cyan font-mono text-xs animate-matrix-rain"
-              style={{
-                left: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 3}s`,
-                animationDuration: `${3 + Math.random() * 2}s`,
-              }}
+        {/* Services Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          {services.map((service) => (
+            <div 
+              key={service.id}
+              className="box-3d p-6 rounded-lg backdrop-blur-sm hover:scale-105 transition-all duration-300 group cursor-pointer"
+              onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
             >
-              {Math.random().toString(36).substring(2, 15)}
+              {/* Service Header */}
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center">
+                  <span className="text-3xl mr-3">{service.icon}</span>
+                  <div>
+                    <h3 className="text-xl font-orbitron font-semibold text-cyber-cyan">
+                      {service.title}
+                    </h3>
+                    <p className="text-cyber-yellow font-tech text-sm">{service.subtitle}</p>
+                  </div>
+                </div>
+                <div className={`font-tech text-xs font-semibold ${getStatusColor(service.status)}`}>
+                  {service.status.toUpperCase().replace('-', '_')}
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-foreground/80 font-tech text-sm leading-relaxed mb-4">
+                {service.description}
+              </p>
+
+              {/* Complexity Bar */}
+              <div className="mb-4">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-muted-foreground font-tech text-xs">COMPLEXITY</span>
+                  <span className="text-cyber-cyan font-tech text-xs font-semibold">{service.complexity}%</span>
+                </div>
+                <div className="w-full bg-muted rounded-full h-2">
+                  <div 
+                    className="bg-gradient-to-r from-cyber-cyan to-cyber-yellow h-2 rounded-full transition-all duration-1000"
+                    style={{ width: `${service.complexity}%` }}
+                  ></div>
+                </div>
+              </div>
+
+              {/* Expandable Features */}
+              {expandedService === service.id && (
+                <div className="border-t border-border/50 pt-4 mt-4">
+                  <h4 className="font-orbitron font-semibold text-cyber-yellow mb-3">FEATURES</h4>
+                  <ul className="space-y-2">
+                    {service.features.map((feature, index) => (
+                      <li key={index} className="text-foreground/80 font-tech text-xs flex items-center">
+                        <span className="text-cyber-cyan mr-2">▶</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {/* Footer */}
+              <div className="flex justify-between items-center mt-6 pt-4 border-t border-border/30">
+                <div>
+                  <span className="text-muted-foreground font-tech text-xs">PRICE: </span>
+                  <span className="text-cyber-cyan font-tech text-sm font-semibold">${service.pricing}</span>
+                </div>
+                <div>
+                  <span className="text-muted-foreground font-tech text-xs">DURATION: </span>
+                  <span className="text-cyber-yellow font-tech text-sm font-semibold">{service.duration}</span>
+                </div>
+              </div>
             </div>
           ))}
         </div>
+
+        {/* Stats Section */}
+        <div className="grid md:grid-cols-4 gap-6 mb-16">
+          {[
+            { label: 'CLIENTS SERVED', value: '247', color: 'text-cyber-cyan' },
+            { label: 'AI MODELS DEPLOYED', value: '89', color: 'text-cyber-yellow' },
+            { label: 'SUCCESS RATE', value: '97.2%', color: 'text-terminal-green' },
+            { label: 'YEARS EXPERIENCE', value: '12+', color: 'text-cyber-cyan' }
+          ].map((stat, index) => (
+            <div key={index} className="box-3d p-6 rounded-lg backdrop-blur-sm text-center">
+              <div className={`text-3xl font-orbitron font-bold ${stat.color} mb-2`}>
+                {stat.value}
+              </div>
+              <div className="text-muted-foreground font-tech text-sm">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center">
+          <div className="box-3d p-8 rounded-lg backdrop-blur-sm mb-8">
+            <h2 className="text-3xl font-orbitron font-bold text-cyber-cyan mb-4">
+              READY TO REVOLUTIONIZE?
+            </h2>
+            <p className="text-foreground/80 font-tech text-lg leading-relaxed mb-6">
+              Join hundreds of companies that have transformed their operations with our AI solutions.
+            </p>
+          </div>
+          <a href="/contact">
+            <CyberButton variant="cyber" size="lg" className="font-orbitron tracking-wider box-3d">
+              START YOUR AI JOURNEY
+            </CyberButton>
+          </a>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

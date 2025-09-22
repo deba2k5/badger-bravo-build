@@ -14,8 +14,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        mono: ['JetBrains Mono', 'Courier New', 'monospace'],
-        terminal: ['JetBrains Mono', 'monospace'],
+        orbitron: ['Orbitron', 'system-ui', 'sans-serif'],
+        tech: ['Share Tech Mono', 'Courier New', 'monospace'],
+        mono: ['Share Tech Mono', 'Courier New', 'monospace'],
       },
       colors: {
         border: "hsl(var(--border))",

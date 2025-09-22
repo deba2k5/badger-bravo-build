@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -83,12 +83,13 @@
   }
   
   body {
-    @apply bg-background text-foreground font-mono antialiased;
+    @apply bg-background text-foreground font-tech antialiased;
     background-image: 
       radial-gradient(circle at 25px 25px, hsl(var(--matrix-dot)) 1px, transparent 1px),
       radial-gradient(circle at 75px 75px, hsl(var(--matrix-dot)) 1px, transparent 1px);
     background-size: 50px 50px, 50px 50px;
     background-position: 0 0, 0 0;
+    cursor: none;
   }
 }
 
@@ -172,19 +173,33 @@
     z-index: -2;
   }
   
-  /* Inspire glow effect */
+  /* Inspire text effect - simplified */
   .inspire-glow {
-    background: linear-gradient(45deg, hsl(var(--neon-cyan)), hsl(var(--neon-yellow)), hsl(var(--terminal-green)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    filter: drop-shadow(0 0 20px hsl(var(--neon-cyan) / 0.7)) drop-shadow(0 0 40px hsl(var(--neon-yellow) / 0.5));
-    animation: glow-pulse 3s ease-in-out infinite;
+    color: hsl(var(--neon-cyan));
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    transform: perspective(1000px) rotateX(15deg);
+    letter-spacing: 0.1em;
   }
 
-  .glow-text {
-    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 20px currentColor);
-    animation: glow-pulse 4s ease-in-out infinite;
+  /* 3D Box effects */
+  .box-3d {
+    background: hsl(var(--card));
+    border: 2px solid hsl(var(--border));
+    box-shadow: 
+      0 8px 16px rgba(0, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
+    transition: all 0.3s ease;
+  }
+
+  .box-3d:hover {
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-5px);
+    box-shadow: 
+      0 12px 24px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.15),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.25);
   }
   
   /* Status indicators */
