@@ -24,63 +24,61 @@ interface Project {
 
 const projects: Project[] = [
   {
-    id: 'neural-vision',
-    title: 'NEURAL VISION SYSTEM',
-    category: 'COMPUTER_VISION',
-    description: 'Advanced computer vision system for real-time object detection and classification in autonomous vehicles.',
-    technologies: ['PyTorch', 'OpenCV', 'CUDA', 'TensorRT', 'ROS'],
-    status: 'deployed',
-    completion: 100,
-    impact: '45% reduction in false positives',
-    client: 'AUTOMOTIVE_CORP',
-    year: '2024',
+    id: 'AIZENERA-1',
+    title: 'TO BE REVEALED',
+    category: 'COMING SOON',
+    description: 'COMING SOON',
+    technologies: ['COMING SOON],
+    status: 'COMING SOON',
+    completion: 00,
+    impact: 'COMING SOON',
+    client: 'SOMING SOON',
+    year: '2025',
     metrics: {
-      performance: 98,
-      accuracy: 96,
-      efficiency: 94
+      performance: 00,
+      accuracy: 00,
+      efficiency: 00
     }
   },
-  {
-    id: 'quantum-optimizer',
-    title: 'QUANTUM OPTIMIZER',
-    category: 'QUANTUM_AI',
-    description: 'Hybrid quantum-classical optimization algorithm for supply chain management and logistics.',
-    technologies: ['Qiskit', 'TensorFlow', 'IBM Quantum', 'Python', 'Docker'],
-    status: 'in-progress',
-    completion: 78,
-    impact: '32% cost reduction projected',
-    client: 'LOGISTICS_GLOBAL',
-    year: '2024',
+     id: 'AIZENERA-2',
+    title: 'TO BE REVEALED',
+    category: 'COMING SOON',
+    description: 'COMING SOON',
+    technologies: ['COMING SOON],
+    status: 'COMING SOON',
+    completion: 00,
+    impact: 'COMING SOON',
+    client: 'SOMING SOON',
+    year: '2025',
     metrics: {
-      performance: 85,
-      accuracy: 91,
-      efficiency: 88
+      performance: 00,
+      accuracy: 00,
+      efficiency: 00
     }
   },
-  {
-    id: 'nlp-assistant',
-    title: 'COGNITIVE ASSISTANT',
-    category: 'NATURAL_LANGUAGE',
-    description: 'Multi-modal AI assistant for enterprise knowledge management and intelligent document processing.',
-    technologies: ['Transformers', 'BERT', 'GPT', 'FastAPI', 'Redis'],
-    status: 'completed',
-    completion: 100,
-    impact: '67% faster document processing',
-    client: 'ENTERPRISE_TECH',
-    year: '2024',
+     id: 'AIZENERA-3',
+    title: 'TO BE REVEALED',
+    category: 'COMING SOON',
+    description: 'COMING SOON',
+    technologies: ['COMING SOON],
+    status: 'COMING SOON',
+    completion: 00,
+    impact: 'COMING SOON',
+    client: 'SOMING SOON',
+    year: '2025',
     metrics: {
-      performance: 94,
-      accuracy: 97,
-      efficiency: 92
+      performance: 00,
+      accuracy: 00,
+      efficiency: 00
     }
-  }
+  },
 ];
 
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
-  const categories = ['all', 'COMPUTER_VISION', 'QUANTUM_AI', 'NATURAL_LANGUAGE'];
+  const categories = ['all', 'COMPUTER_VISION', 'GENERATIVE_AI', 'NATURAL_LANGUAGE'];
 
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
