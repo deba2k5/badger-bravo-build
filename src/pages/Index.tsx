@@ -45,7 +45,7 @@ const Index = () => {
                 INSPIRE
               </div>
               <div className="text-4xl md:text-6xl lg:text-7xl font-bold font-orbitron text-cyber-yellow">
-                2025
+                JOIN AIZENERA
               </div>
             </div>
 
