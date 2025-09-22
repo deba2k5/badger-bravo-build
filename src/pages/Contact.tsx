@@ -16,16 +16,16 @@ interface ContactMethod {
 const contactMethods: ContactMethod[] = [
   {
     type: 'email',
-    label: 'NEURAL LINK',
-    value: 'contact@aizenera.com',
+    label: 'AIZENERA',
+    value: 'info@aizenera.com',
     status: 'active',
     responseTime: '< 2 HOURS',
     icon: '📧'
   },
   {
     type: 'phone',
-    label: 'QUANTUM COMM',
-    value: '+1 (555) AI-ZENER',
+    label: 'AIZENERA',
+    value: '+91 6290277345',
     status: 'active',
     responseTime: '< 30 MINUTES',
     icon: '📞'
@@ -89,7 +89,7 @@ const Contact = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
-            NEURAL CONTACT
+            CONTACT US
           </h1>
           <p className="text-xl font-tech text-foreground/80 max-w-3xl mx-auto leading-relaxed">
             Ready to revolutionize your business with AI? Connect with our neural network specialists.
@@ -148,7 +148,7 @@ const Contact = () => {
           {/* Contact Form */}
           <div>
             <h2 className="text-2xl font-orbitron font-bold text-cyber-yellow mb-8">
-              NEURAL HANDSHAKE PROTOCOL
+              AIZENERA HANDSHAKE PROTOCOL
             </h2>
             
             <form onSubmit={handleSubmit} className="box-3d p-8 rounded-lg backdrop-blur-sm">
@@ -169,7 +169,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <label className="block font-tech text-sm font-semibold text-cyber-cyan mb-2">
-                    NEURAL_EMAIL *
+                    AIZENERA_EMAIL *
                   </label>
                   <input
                     type="email"
@@ -227,10 +227,10 @@ const Contact = () => {
                   className="w-full bg-background/50 border border-border rounded px-4 py-3 font-tech text-sm text-foreground focus:border-cyber-cyan focus:outline-none transition-colors"
                 >
                   <option value="">Select budget range</option>
-                  <option value="5k-10k">$5,000 - $10,000</option>
-                  <option value="10k-25k">$10,000 - $25,000</option>
-                  <option value="25k-50k">$25,000 - $50,000</option>
-                  <option value="50k+">$50,000+</option>
+                  <option value="5k-10k">Rs.5,000 - $10,000</option>
+                  <option value="10k-25k">Rs.10,000 - $25,000</option>
+                  <option value="25k-50k">Rs.25,000 - $50,000</option>
+                  <option value="50k+">Rs.50,000+</option>
                 </select>
               </div>
 
@@ -255,7 +255,7 @@ const Contact = () => {
                 size="lg" 
                 className="w-full font-orbitron tracking-wider box-3d"
               >
-                INITIATE_NEURAL_HANDSHAKE
+                INITIATE_AIZENERA_HANDSHAKE
               </CyberButton>
             </form>
           </div>
@@ -265,7 +265,7 @@ const Contact = () => {
         <div className="text-center">
           <div className="box-3d p-8 rounded-lg backdrop-blur-sm">
             <h3 className="text-2xl font-orbitron font-bold text-cyber-cyan mb-6">
-              CONNECT WITH OUR NEURAL NETWORK
+              CONNECT WITH AIZENERA COMMUNITY
             </h3>
             <div className="flex justify-center space-x-6">
               <a 
@@ -280,7 +280,7 @@ const Contact = () => {
                 </CyberButton>
               </a>
               <a 
-                href="mailto:contact@aizenera.com"
+                href="mailto:info@aizenera.com"
                 className="group"
               >
                 <CyberButton variant="ghost" size="lg" className="font-tech box-3d">
