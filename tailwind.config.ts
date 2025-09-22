@@ -137,6 +137,7 @@ export default {
         "matrix-rain": "matrix-rain 3s linear infinite",
         "fade-in-up": "fade-in-up 0.6s ease-out",
         "slide-in-right": "slide-in-right 0.6s ease-out",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
       },
       backgroundImage: {
         'gradient-cyber': 'linear-gradient(135deg, hsl(var(--neon-cyan)) 0%, hsl(var(--neon-blue)) 100%)',
