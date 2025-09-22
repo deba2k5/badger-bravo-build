@@ -13,32 +13,32 @@ interface TeamMember {
 
 const teamMembers: TeamMember[] = [
   {
-    name: 'DR. ALEX NEURAL',
-    role: 'CHIEF AI ARCHITECT',
-    bio: 'Leading the charge in neural network architecture with 12+ years of experience in deep learning and AI research.',
+    name: 'DEBANGSHU CHATTERJEE',
+    role: 'CO FOUNDER',
+    bio: 'Leading the charge in neural network architecture with experience in deep learning and AI research.',
     stats: [
-      { label: 'PROJECTS', value: '47' },
+      { label: 'PROJECTS', value: '5+' },
       { label: 'ACCURACY', value: '98.7%' },
       { label: 'STATUS', value: 'ACTIVE' }
     ]
   },
   {
-    name: 'ZARA QUANTUM',
-    role: 'SYSTEM ENGINEER',
-    bio: 'Quantum computing specialist focused on optimizing AI algorithms for next-generation processing power.',
+    name: 'NIRMALYA SENGUPTA',
+    role: 'CO FOUNDER',
+    bio: 'Focused on optimizing AI algorithms for next-generation processing power.',
     stats: [
-      { label: 'PROJECTS', value: '23' },
-      { label: 'EFFICIENCY', value: '94.2%' },
+      { label: 'PROJECTS', value: '5+' },
+      { label: 'EFFICIENCY', value: '98.2%' },
       { label: 'STATUS', value: 'BUSY' }
     ]
   },
   {
-    name: 'MAYA SYNTH',
-    role: 'UX NEURAL DESIGNER',
-    bio: 'Creating intuitive human-AI interfaces that bridge the gap between complex technology and user experience.',
+    name: 'TO BE REVEALED',
+    role: 'TO BE REVEALED',
+    bio: 'TO BE REVEALED',
     stats: [
-      { label: 'PROJECTS', value: '31' },
-      { label: 'SATISFACTION', value: '96.8%' },
+      { label: 'PROJECTS', value: 'X' },
+      { label: 'SATISFACTION', value: '99.9%' },
       { label: 'STATUS', value: 'ACTIVE' }
     ]
   }
