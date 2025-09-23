@@ -1,12 +1,15 @@
 import { CyberButton } from './ui/cyber-button';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
+import aiZeneraLogo from '@/assets/aizenera-logo.png';
 
 const navItems = [
   { name: 'HOME', href: '/' },
   { name: 'ABOUT', href: '/about' },
   { name: 'SERVICES', href: '/services' },
   { name: 'PROJECTS', href: '/projects' },
+  { name: 'BLOG', href: '/blog' },
+  { name: 'COLLABORATIONS', href: '/collaborations' },
   { name: 'CONTACT', href: '/contact' },
 ];
 
@@ -22,8 +25,11 @@ export const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="text-cyber-cyan font-mono font-bold text-xl neon-glow hover:animate-pulse transition-all duration-300">
-              AI_ZENERA
+            <Link to="/" className="flex items-center gap-3 hover:animate-pulse transition-all duration-300">
+              <img src={aiZeneraLogo} alt="AI ZENERA" className="h-10 w-10" />
+              <span className="text-cyber-cyan font-tech font-bold text-xl">
+                AI_ZENERA
+              </span>
             </Link>
           </div>
 

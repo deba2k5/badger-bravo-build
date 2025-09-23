@@ -258,7 +258,9 @@ const Projects = () => {
             </p>
           </div>
           <a href="/contact">
-            <CyberButton variant="cyber" size="lg"
+            <CyberButton variant="cyber" size="lg" className="font-tech tracking-wider">
+              NEURAL_CONNECT
+            </CyberButton>
           </a>
         </div>
       </div>
