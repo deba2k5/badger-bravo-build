@@ -2,6 +2,8 @@ import { Navigation } from '@/components/Navigation';
 import { CyberButton } from '@/components/ui/cyber-button';
 import { CursorTrail } from '@/components/CursorTrail';
 import { Footer } from '@/components/Footer';
+import { ThreeScene } from '@/components/ThreeScene';
+import { HeroCyberGrid } from '@/components/HeroCyberGrid';
 import { useState } from 'react';
 
 interface Service {
@@ -19,61 +21,61 @@ interface Service {
 
 const services: Service[] = [
   {
-    id: 'neural-training',
-    title: 'NEURAL TRAINING',
-    subtitle: 'AI_EDUCATION_PROTOCOL',
-    description: 'Comprehensive AI education through immersive neural network simulations and hands-on machine learning projects.',
+    id: 'ai-masterclasses',
+    title: 'AI MASTERCLASSES',
+    subtitle: 'GENERATIVE_AI_PROTOCOL',
+    description: 'Comprehensive AI education through cutting-edge Generative AI techniques and hands-on machine learning projects.',
     features: [
-      'Deep Learning Fundamentals',
-      'Neural Network Architecture',
-      'Computer Vision Training',
-      'NLP Model Development',
-      'Reinforcement Learning',
+      'Generative AI Fundamentals',
+      'Large Language Models',
+      'Computer Vision & GANs',
+      'Neural Architecture Design',
+      'Prompt Engineering',
       'AI Ethics & Safety'
     ],
-    pricing: '2499',
+    pricing: '4999',
     icon: '🧠',
     status: 'available',
-    complexity: 85,
-    duration: '12_WEEKS'
+    complexity: 90,
+    duration: '8_WEEKS'
   },
   {
-    id: 'ai-consulting',
-    title: 'AI CONSULTING',
-    subtitle: 'STRATEGIC_IMPLEMENTATION',
-    description: 'Enterprise-grade AI strategy consulting and implementation services for digital transformation initiatives.',
+    id: 'consultancy-services',
+    title: 'CONSULTANCY SERVICES',
+    subtitle: 'STRATEGIC_AI_IMPLEMENTATION',
+    description: 'Enterprise-grade AI strategy consulting and implementation services for complete digital transformation.',
     features: [
       'AI Readiness Assessment',
-      'Custom Model Development',
+      'Custom AI Solutions',
       'System Integration',
       'Performance Optimization',
       'Scalability Planning',
-      'ROI Analysis'
+      'ROI Analysis & Metrics'
     ],
-    pricing: '5999',
+    pricing: '9999',
     icon: '⚡',
     status: 'available',
     complexity: 95,
-    duration: '16_WEEKS'
+    duration: '12_WEEKS'
   },
   {
-    id: 'quantum-ai',
-    title: 'QUANTUM AI',
-    subtitle: 'NEXT_GEN_COMPUTING',
-    description: 'Cutting-edge quantum-enhanced AI algorithms for solving complex optimization problems.',
+    id: 'partnerships-collaborations',
+    title: 'PARTNERSHIPS',
+    subtitle: 'COLLABORATIVE_AI_VENTURES',
+    description: 'Strategic partnerships and collaborations for joint AI research, development, and innovation projects.',
     features: [
-      'Quantum Algorithm Design',
-      'Hybrid Computing Models',
-      'Optimization Solutions',
-      'Quantum Machine Learning',
-      'Error Correction',
-      'Performance Analysis'
+      'Joint Research Projects',
+      'Technology Transfer',
+      'Innovation Partnerships',
+      'Academic Collaborations',
+      'Industry Alliances',
+      'Startup Incubation'
     ],
-    pricing: '9999',
-    icon: '🔮',
-    status: 'limited',
-    complexity: 98,
-    duration: '20_WEEKS'
+    pricing: 'Custom',
+    icon: '🤝',
+    status: 'available',
+    complexity: 88,
+    duration: 'Flexible'
   }
 ];
 
@@ -90,11 +92,14 @@ const Services = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
       <CursorTrail />
+      <ThreeScene />
+      <HeroCyberGrid />
       <Navigation />
       
-      <div className="container mx-auto px-4 py-20">
+      <main className="relative z-10">
+        <div className="container mx-auto px-4 py-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
@@ -213,8 +218,9 @@ const Services = () => {
             </CyberButton>
           </a>
         </div>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </main>
     </div>
   );
 };

@@ -111,6 +111,51 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Current Service Section */}
+        <section className="py-20 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="box-3d p-8 rounded-lg backdrop-blur-sm mb-8">
+              <div className="text-center mb-8">
+                <div className="inline-block px-6 py-3 box-3d rounded-lg mb-4">
+                  <span className="text-cyber-cyan font-orbitron text-sm font-semibold tracking-wider">
+                    🎓 CURRENT SERVICE 🎓
+                  </span>
+                </div>
+                <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-cyber-cyan mb-4">
+                  GENERATIVE AI MASTERCLASS
+                </h2>
+                <p className="text-foreground/80 font-tech text-lg leading-relaxed max-w-3xl mx-auto mb-6">
+                  Transform your career with cutting-edge Generative AI skills. Master GPT models, image generation, 
+                  and advanced AI techniques in our comprehensive 8-week program.
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <div className="text-center">
+                  <div className="text-cyber-cyan font-orbitron text-2xl font-bold mb-2">8 WEEKS</div>
+                  <div className="text-foreground/60 font-tech text-sm">DURATION</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-cyber-yellow font-orbitron text-2xl font-bold mb-2">4th OCT</div>
+                  <div className="text-foreground/60 font-tech text-sm">LAUNCH DATE</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-terminal-green font-orbitron text-2xl font-bold mb-2">₹4,999</div>
+                  <div className="text-foreground/60 font-tech text-sm">EARLY BIRD</div>
+                </div>
+              </div>
+
+              <div className="text-center">
+                <a href="/services">
+                  <CyberButton variant="cyber" size="lg" className="font-orbitron tracking-wider">
+                    ENROLL_NOW
+                  </CyberButton>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Service Modules Section */}
         <ServiceModules />
 

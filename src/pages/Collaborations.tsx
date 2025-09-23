@@ -8,36 +8,36 @@ import { CyberButton } from '@/components/ui/cyber-button';
 const collaborationEvents = [
   {
     id: 1,
-    title: "NEURAL SUMMIT 2024",
-    date: "2024-04-15",
-    type: "CONFERENCE",
-    status: "UPCOMING",
-    participants: 250,
-    location: "DIGITAL_REALM",
-    description: "Global convergence of AI minds. Explore breakthrough technologies and neural network innovations.",
-    technologies: ["QUANTUM_AI", "NEURAL_NETS", "BLOCKCHAIN"]
+    title: "SMART MAKEATHON 2025",
+    date: "6th - 7th September 2025",
+    type: "MAKEATHON",
+    status: "COMPLETED",
+    participants: 200,
+    location: "TECH_ARENA",
+    description: "Innovation-driven makeathon focusing on smart solutions and AI-powered prototypes for real-world challenges.",
+    technologies: ["IoT", "AI_ML", "ROBOTICS", "SMART_SYSTEMS"]
   },
   {
     id: 2,
-    title: "HACKATHON: AI REVOLUTION",
-    date: "2024-03-28",
-    type: "COMPETITION",
-    status: "ACTIVE",
-    participants: 150,
-    location: "CYBER_SPACE",
-    description: "48-hour intensive coding session to build next-generation AI solutions for humanity.",
-    technologies: ["MACHINE_LEARNING", "ROBOTICS", "IoT"]
+    title: "IEM HACKOASIS 2.0",
+    date: "20th September 2025",
+    type: "HACKATHON",
+    status: "COMPLETED",
+    participants: 300,
+    location: "IEM_CAMPUS",
+    description: "Premier coding competition bringing together brilliant minds to create innovative tech solutions.",
+    technologies: ["WEB_DEV", "AI_ML", "BLOCKCHAIN", "MOBILE_APP"]
   },
   {
     id: 3,
-    title: "QUANTUM RESEARCH ALLIANCE",
-    date: "2024-05-10",
-    type: "PARTNERSHIP",
-    status: "PLANNING",
-    participants: 50,
-    location: "MULTIVERSE_LAB",
-    description: "Strategic alliance between leading quantum computing researchers and AI developers.",
-    technologies: ["QUANTUM_COMPUTING", "AI_FUSION", "CRYPTOGRAPHY"]
+    title: "HACKSPIRE 2025",
+    date: "31st Oct - 1st Nov 2025",
+    type: "HACKATHON",
+    status: "UPCOMING",
+    participants: 400,
+    location: "INNOVATION_HUB",
+    description: "Next-generation hackathon inspiring breakthrough innovations in AI, quantum computing, and emerging technologies.",
+    technologies: ["QUANTUM_AI", "NEURAL_NETWORKS", "EDGE_COMPUTING", "BIOTECH"]
   }
 ];
 
@@ -53,22 +53,17 @@ const Collaborations = () => {
         {/* Hero Section */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto text-center">
-            <div className="mb-8">
-              <div className="box-3d px-6 py-3 rounded-lg backdrop-blur-sm inline-block mb-6">
-                <span className="text-cyber-cyan font-tech text-sm font-semibold tracking-wider">
-                  🤝 NEURAL ALLIANCES 🤝
-                </span>
-              </div>
-            </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold font-tech leading-tight mb-6">
-              <span className="text-foreground">EVENT</span>
-              <div className="text-cyber-cyan mt-2">COLLABORATIONS</div>
+          <div className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
+              EVENT
             </h1>
-            
+            <div className="text-6xl md:text-8xl font-black font-orbitron inspire-glow mb-6">
+              COLLABORATIONS
+            </div>
             <p className="text-foreground/80 font-tech text-lg max-w-3xl mx-auto leading-relaxed">
               Join the collective intelligence. Collaborate with global minds to shape the AI future.
             </p>
+          </div>
           </div>
         </section>
 
@@ -96,16 +91,48 @@ const Collaborations = () => {
           </div>
         </section>
 
+        {/* Stats Section */}
+        <section className="py-12 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-4 gap-6">
+              {[
+                { label: "ACTIVE_EVENTS", value: "3", icon: "🚀" },
+                { label: "GLOBAL_PARTNERS", value: "50+", icon: "🌐" },
+                { label: "NEURAL_CONNECTIONS", value: "500+", icon: "🧠" },
+                { label: "SUCCESS_RATE", value: "100%", icon: "⚡" }
+              ].map((stat, index) => (
+                <div key={index} className="box-3d p-6 text-center backdrop-blur-sm hover:border-cyber-cyan/50 transition-all duration-300">
+                  <div className="text-2xl mb-2">{stat.icon}</div>
+                  <div className="text-2xl font-orbitron font-bold text-cyber-cyan mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-foreground/70 font-tech text-sm">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Events Grid */}
         <section className="py-20 px-4">
           <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-orbitron font-bold text-cyber-cyan mb-4">
+                EVENT_COLLABORATIONS
+              </h2>
+              <p className="text-foreground/80 font-tech text-lg">
+                Our journey through innovation and collaboration
+              </p>
+            </div>
             <div className="grid lg:grid-cols-2 gap-8">
               {collaborationEvents.map((event) => (
                 <div key={event.id} className="box-3d rounded-lg backdrop-blur-sm hover:border-cyber-cyan/50 transition-all duration-300 group">
                   <div className="p-8">
                     <div className="flex items-center justify-between mb-6">
-                      <span className={`font-tech text-xs px-3 py-1 border rounded ${
-                        event.status === 'ACTIVE' ? 'text-terminal-green border-terminal-green/30' :
+                      <span className={`font-orbitron text-xs px-3 py-1 border rounded ${
+                        event.status === 'COMPLETED' ? 'text-terminal-green border-terminal-green/30' :
                         event.status === 'UPCOMING' ? 'text-cyber-cyan border-cyber-cyan/30' :
                         'text-cyber-yellow border-cyber-yellow/30'
                       }`}>
@@ -116,7 +143,7 @@ const Collaborations = () => {
                       </span>
                     </div>
                     
-                    <h3 className="text-foreground font-tech text-2xl font-semibold mb-4 group-hover:text-cyber-cyan transition-colors">
+                    <h3 className="text-foreground font-orbitron text-2xl font-semibold mb-4 group-hover:text-cyber-cyan transition-colors">
                       {event.title}
                     </h3>
                     
@@ -135,7 +162,7 @@ const Collaborations = () => {
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-foreground/60 font-tech text-sm">PARTICIPANTS:</span>
-                        <span className="text-cyber-cyan font-tech text-sm font-semibold">{event.participants}</span>
+                        <span className="text-cyber-cyan font-orbitron text-sm font-semibold">{event.participants}</span>
                       </div>
                     </div>
                     
@@ -151,8 +178,13 @@ const Collaborations = () => {
                     </div>
                     
                     <div className="flex gap-4">
-                      <CyberButton variant="secondary" size="sm" className="font-tech text-xs flex-1">
-                        JOIN_EVENT
+                      <CyberButton 
+                        variant="secondary" 
+                        size="sm" 
+                        className="font-tech text-xs flex-1"
+                        disabled={event.status === 'COMPLETED'}
+                      >
+                        {event.status === 'COMPLETED' ? 'COMPLETED' : 'JOIN_EVENT'}
                       </CyberButton>
                       <CyberButton variant="ghost" size="sm" className="font-tech text-xs">
                         DETAILS →

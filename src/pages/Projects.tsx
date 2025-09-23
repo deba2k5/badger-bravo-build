@@ -2,6 +2,8 @@ import { Navigation } from '@/components/Navigation';
 import { CyberButton } from '@/components/ui/cyber-button';
 import { CursorTrail } from '@/components/CursorTrail';
 import { Footer } from '@/components/Footer';
+import { ThreeScene } from '@/components/ThreeScene';
+import { HeroCyberGrid } from '@/components/HeroCyberGrid';
 import { useState } from 'react';
 
 interface Project {
@@ -97,11 +99,14 @@ const Projects = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background relative">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
       <CursorTrail />
+      <ThreeScene />
+      <HeroCyberGrid />
       <Navigation />
       
-      <div className="container mx-auto px-4 py-20">
+      <main className="relative z-10">
+        <div className="container mx-auto px-4 py-20">
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
@@ -263,8 +268,9 @@ const Projects = () => {
             </CyberButton>
           </a>
         </div>
-      </div>
-      <Footer />
+        </div>
+        <Footer />
+      </main>
     </div>
   );
 };
