@@ -140,7 +140,7 @@ const Index = () => {
                   <div className="text-foreground/60 font-tech text-sm">LAUNCH DATE</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-terminal-green font-orbitron text-2xl font-bold mb-2">₹4,999</div>
+                  <div className="text-terminal-green font-orbitron text-2xl font-bold mb-2">₹249</div>
                   <div className="text-foreground/60 font-tech text-sm">EARLY BIRD</div>
                 </div>
               </div>
