@@ -20,15 +20,15 @@ export const Navigation = () => {
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-40 bg-background/90 backdrop-blur-sm border-b border-cyber-cyan/20">
+    <nav className="fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-b border-border shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="flex items-center gap-3 hover:animate-pulse transition-all duration-300">
+            <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity duration-300">
               <img src={aiZeneraLogo} alt="AI ZENERA" className="h-10 w-10" />
-              <span className="text-cyber-cyan font-tech font-bold text-xl">
-                AI_ZENERA
+              <span className="text-primary font-semibold text-xl">
+                AI ZENERA
               </span>
             </Link>
           </div>
@@ -40,10 +40,10 @@ export const Navigation = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className={`px-4 py-2 text-sm font-mono transition-all duration-300 hover:neon-glow border border-transparent hover:border-cyber-cyan/30 ${
+                  className={`px-4 py-2 text-sm font-medium transition-colors duration-200 rounded-md ${
                     isActive(item.href) 
-                      ? 'text-cyber-cyan neon-glow border-cyber-cyan/30 bg-cyber-cyan/10' 
-                      : 'text-muted-foreground hover:text-cyber-cyan'
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-muted-foreground hover:text-primary hover:bg-muted'
                   }`}
                 >
                   {item.name}
@@ -55,9 +55,9 @@ export const Navigation = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Link to="/contact">
-              <CyberButton variant="terminal" size="sm" className="font-mono text-xs">
-                NEURAL_ACCESS
-              </CyberButton>
+              <button className="px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">
+                Get Started
+              </button>
             </Link>
           </div>
 
@@ -65,7 +65,7 @@ export const Navigation = () => {
           <div className="md:hidden">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-cyber-cyan p-2 hover:neon-glow transition-all duration-300"
+              className="text-foreground p-2 hover:bg-muted rounded-md transition-colors"
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isMobileMenuOpen ? (
@@ -80,22 +80,27 @@ export const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-cyber-cyan/20 bg-background/95 backdrop-blur-sm animate-fade-in-up">
+          <div className="md:hidden border-t border-border bg-white">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`block px-3 py-2 text-sm font-mono transition-all duration-300 border border-transparent hover:border-cyber-cyan/30 ${
+                  className={`block px-3 py-2 text-sm font-medium transition-colors rounded-md ${
                     isActive(item.href) 
-                      ? 'text-cyber-cyan neon-glow border-cyber-cyan/30 bg-cyber-cyan/10' 
-                      : 'text-muted-foreground hover:text-cyber-cyan'
+                      ? 'text-primary bg-primary/10' 
+                      : 'text-muted-foreground hover:text-primary hover:bg-muted'
                   }`}
                 >
                   {item.name}
                 </Link>
               ))}
+              <Link to="/contact" className="block px-3 py-2">
+                <button className="w-full px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors">
+                  Get Started
+                </button>
+              </Link>
             </div>
           </div>
         )}

@@ -1,75 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Cyberpunk AI Terminal Design System */
+/* Clean Company Website Design System */
 
 @layer base {
   :root {
-    /* Core cyberpunk palette */
-    --background: 0 0% 4%;
-    --foreground: 180 100% 90%;
+    /* Professional color palette */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
     
-    /* Matrix terminal colors */
-    --matrix-bg: 0 0% 2%;
-    --matrix-grid: 180 100% 8%;
-    --matrix-dot: 180 100% 15%;
+    /* Component colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --card-border: 214 32% 91%;
     
-    /* Neon accent colors */
-    --neon-cyan: 180 100% 50%;
-    --neon-cyan-glow: 180 100% 70%;
-    --neon-yellow: 60 100% 50%;
-    --neon-yellow-glow: 60 100% 70%;
-    --neon-green: 120 100% 50%;
-    --neon-blue: 240 100% 50%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
     
-    /* Terminal system colors */
-    --terminal-green: 120 100% 50%;
-    --terminal-amber: 45 100% 50%;
-    --terminal-red: 0 100% 50%;
-    --terminal-blue: 200 100% 60%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 221 83% 63%;
     
-    /* Component colors using cyberpunk palette */
-    --card: 0 0% 6%;
-    --card-foreground: 180 100% 90%;
-    --card-border: 180 100% 20%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --secondary-glow: 210 40% 90%;
     
-    --popover: 0 0% 4%;
-    --popover-foreground: 180 100% 90%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
     
-    --primary: 180 100% 50%;
-    --primary-foreground: 0 0% 4%;
-    --primary-glow: 180 100% 70%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
     
-    --secondary: 60 100% 50%;
-    --secondary-foreground: 0 0% 4%;
-    --secondary-glow: 60 100% 70%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
     
-    --muted: 0 0% 15%;
-    --muted-foreground: 180 50% 60%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 221 83% 53%;
     
-    --accent: 120 100% 50%;
-    --accent-foreground: 0 0% 4%;
+    --radius: 0.5rem;
     
-    --destructive: 0 100% 50%;
-    --destructive-foreground: 180 100% 90%;
-    
-    --border: 180 100% 20%;
-    --input: 0 0% 8%;
-    --ring: 180 100% 50%;
-    
-    --radius: 0.25rem;
-    
-    /* Custom gradient definitions */
-    --gradient-cyber: linear-gradient(135deg, hsl(var(--neon-cyan)) 0%, hsl(var(--neon-blue)) 100%);
-    --gradient-glow: linear-gradient(135deg, hsl(var(--neon-cyan) / 0.3) 0%, hsl(var(--neon-yellow) / 0.3) 100%);
-    --gradient-matrix: radial-gradient(circle at center, hsl(var(--matrix-dot)) 1px, transparent 1px);
+    /* Simple gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(221 83% 43%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--muted)) 100%);
     
     /* Animation durations */
     --duration-fast: 0.15s;
     --duration-normal: 0.3s;
     --duration-slow: 0.5s;
+    
+    /* Cyber theme compatibility (for existing components) */
+    --neon-cyan: 221 83% 53%;
+    --neon-yellow: 45 93% 58%;
+    --neon-green: 142 76% 36%;
+    --neon-blue: 221 83% 53%;
+    --terminal-green: 142 76% 36%;
+    --terminal-amber: 45 93% 58%;
+    --terminal-red: 0 84% 60%;
+    --terminal-blue: 221 83% 53%;
+    --cyber-cyan: 221 83% 53%;
+    --cyber-yellow: 45 93% 58%;
+    --cyber-green: 142 76% 36%;
+    --cyber-blue: 221 83% 53%;
+    --matrix-bg: 0 0% 98%;
+    --matrix-grid: 214 32% 91%;
+    --matrix-dot: 214 32% 85%;
   }
 }
 
@@ -83,123 +80,19 @@
   }
   
   body {
-    @apply bg-background text-foreground font-tech antialiased;
-    background-image: 
-      radial-gradient(circle at 25px 25px, hsl(var(--matrix-dot)) 1px, transparent 1px),
-      radial-gradient(circle at 75px 75px, hsl(var(--matrix-dot)) 1px, transparent 1px);
-    background-size: 50px 50px, 50px 50px;
-    background-position: 0 0, 0 0;
-    cursor: none;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
 
 @layer components {
-  /* Cyberpunk neon glow effects */
-  .neon-glow {
-    text-shadow: 
-      0 0 5px currentColor,
-      0 0 10px currentColor,
-      0 0 15px currentColor,
-      0 0 20px currentColor;
+  /* Simple shadow effects */
+  .card-shadow {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
   
-  .neon-border {
-    border: 1px solid hsl(var(--primary));
-    box-shadow: 
-      0 0 5px hsl(var(--primary) / 0.5),
-      inset 0 0 5px hsl(var(--primary) / 0.2);
-  }
-  
-  .terminal-scan {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .terminal-scan::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      hsl(var(--neon-cyan) / 0.1),
-      transparent
-    );
-    animation: scan 2s infinite;
-  }
-  
-  .matrix-bg {
-    background: 
-      radial-gradient(circle at 20% 80%, hsl(var(--neon-cyan) / 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 80% 20%, hsl(var(--neon-yellow) / 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 40% 40%, hsl(var(--neon-green) / 0.03) 0%, transparent 50%);
-  }
-  
-  /* Terminal typing effect */
-  .terminal-cursor::after {
-    content: '_';
-    animation: blink 1s infinite;
-    color: hsl(var(--neon-cyan));
-  }
-  
-  /* Glitch effect for special text */
-  .glitch {
-    position: relative;
-    animation: glitch 2s infinite;
-  }
-  
-  .glitch::before,
-  .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .glitch::before {
-    animation: glitch-1 2s infinite;
-    color: hsl(var(--neon-cyan));
-    z-index: -1;
-  }
-  
-  .glitch::after {
-    animation: glitch-2 2s infinite;
-    color: hsl(var(--neon-yellow));
-    z-index: -2;
-  }
-  
-  /* Inspire text effect - simplified */
-  .inspire-glow {
-    color: hsl(var(--neon-cyan));
-    font-weight: 900;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    transform: perspective(1000px) rotateX(15deg);
-    letter-spacing: 0.1em;
-  }
-
-  /* 3D Box effects */
-  .box-3d {
-    background: hsl(var(--card));
-    border: 2px solid hsl(var(--border));
-    box-shadow: 
-      0 8px 16px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(255, 255, 255, 0.1),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg);
-    transition: all 0.3s ease;
-  }
-
-  .box-3d:hover {
-    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(-5px);
-    box-shadow: 
-      0 12px 24px rgba(0, 0, 0, 0.4),
-      inset 0 1px 0 rgba(255, 255, 255, 0.15),
-      inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  .card-shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
   
   /* Status indicators */
@@ -210,18 +103,18 @@
 }
 
 @layer utilities {
-  .text-cyber-cyan { color: hsl(var(--neon-cyan)); }
+  .text-cyber-cyan { color: hsl(var(--primary)); }
   .text-cyber-yellow { color: hsl(var(--neon-yellow)); }
   .text-cyber-green { color: hsl(var(--terminal-green)); }
   .text-terminal { color: hsl(var(--foreground)); }
   
-  .bg-cyber { background: hsl(var(--matrix-bg)); }
+  .bg-cyber { background: hsl(var(--background)); }
   .bg-card-cyber { background: hsl(var(--card)); }
   
   .border-cyber { border-color: hsl(var(--border)); }
   .border-cyber-glow { 
     border-color: hsl(var(--primary));
-    box-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+    box-shadow: 0 0 5px hsl(var(--primary) / 0.15);
   }
 
   /* Enhanced Mobile Responsiveness */
