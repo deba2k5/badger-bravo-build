@@ -1,9 +1,6 @@
 import { Navigation } from '@/components/Navigation';
-import { CyberButton } from '@/components/ui/cyber-button';
-import { CursorTrail } from '@/components/CursorTrail';
 import { Footer } from '@/components/Footer';
-import { ThreeScene } from '@/components/ThreeScene';
-import { HeroCyberGrid } from '@/components/HeroCyberGrid';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 interface Service {
@@ -23,7 +20,7 @@ const services: Service[] = [
   {
     id: 'ai-masterclasses',
     title: 'AI MASTERCLASSES',
-    subtitle: 'GENERATIVE_AI_PROTOCOL',
+    subtitle: 'GENERATIVE AI PROTOCOL',
     description: 'Comprehensive AI education through cutting-edge Generative AI techniques and hands-on machine learning projects.',
     features: [
       'Generative AI Fundamentals',
@@ -37,12 +34,12 @@ const services: Service[] = [
     icon: '🧠',
     status: 'available',
     complexity: 90,
-    duration: '8_WEEKS'
+    duration: '8 WEEKS'
   },
   {
     id: 'consultancy-services',
     title: 'CONSULTANCY SERVICES',
-    subtitle: 'STRATEGIC_AI_IMPLEMENTATION',
+    subtitle: 'STRATEGIC AI IMPLEMENTATION',
     description: 'Enterprise-grade AI strategy consulting and implementation services for complete digital transformation.',
     features: [
       'AI Readiness Assessment',
@@ -56,12 +53,12 @@ const services: Service[] = [
     icon: '⚡',
     status: 'available',
     complexity: 95,
-    duration: '12_WEEKS'
+    duration: '12 WEEKS'
   },
   {
     id: 'partnerships-collaborations',
     title: 'PARTNERSHIPS',
-    subtitle: 'COLLABORATIVE_AI_VENTURES',
+    subtitle: 'COLLABORATIVE AI VENTURES',
     description: 'Strategic partnerships and collaborations for joint AI research, development, and innovation projects.',
     features: [
       'Joint Research Projects',
@@ -84,28 +81,25 @@ const Services = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'available': return 'text-terminal-green';
-      case 'limited': return 'text-cyber-yellow';
-      case 'coming-soon': return 'text-cyber-cyan';
+      case 'available': return 'text-green-600';
+      case 'limited': return 'text-amber-600';
+      case 'coming-soon': return 'text-primary';
       default: return 'text-foreground';
     }
   };
 
   return (
-    <div className="min-h-screen bg-background relative overflow-x-hidden">
-      <CursorTrail />
-      <ThreeScene />
-      <HeroCyberGrid />
+    <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="relative z-10">
+      <main className="pt-20">
         <div className="container mx-auto px-4 py-20">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
             AI SERVICES
           </h1>
-          <p className="text-xl font-tech text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Transform your business with our cutting-edge AI solutions and neural network technologies.
           </p>
         </div>
@@ -115,7 +109,7 @@ const Services = () => {
           {services.map((service) => (
             <div 
               key={service.id}
-              className="box-3d p-6 rounded-lg backdrop-blur-sm hover:scale-105 transition-all duration-300 group cursor-pointer"
+              className="p-6 rounded-lg bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
               onClick={() => setExpandedService(expandedService === service.id ? null : service.id)}
             >
               {/* Service Header */}
@@ -123,31 +117,31 @@ const Services = () => {
                 <div className="flex items-center">
                   <span className="text-3xl mr-3">{service.icon}</span>
                   <div>
-                    <h3 className="text-xl font-orbitron font-semibold text-cyber-cyan">
+                    <h3 className="text-xl font-semibold text-primary">
                       {service.title}
                     </h3>
-                    <p className="text-cyber-yellow font-tech text-sm">{service.subtitle}</p>
+                    <p className="text-muted-foreground text-sm">{service.subtitle}</p>
                   </div>
                 </div>
-                <div className={`font-tech text-xs font-semibold ${getStatusColor(service.status)}`}>
-                  {service.status.toUpperCase().replace('-', '_')}
+                <div className={`text-xs font-semibold ${getStatusColor(service.status)}`}>
+                  {service.status.toUpperCase().replace('-', ' ')}
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-foreground/80 font-tech text-sm leading-relaxed mb-4">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {service.description}
               </p>
 
               {/* Complexity Bar */}
               <div className="mb-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-muted-foreground font-tech text-xs">COMPLEXITY</span>
-                  <span className="text-cyber-cyan font-tech text-xs font-semibold">{service.complexity}%</span>
+                  <span className="text-muted-foreground text-xs">COMPLEXITY</span>
+                  <span className="text-primary text-xs font-semibold">{service.complexity}%</span>
                 </div>
                 <div className="w-full bg-muted rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-cyber-cyan to-cyber-yellow h-2 rounded-full transition-all duration-1000"
+                    className="bg-primary h-2 rounded-full transition-all duration-1000"
                     style={{ width: `${service.complexity}%` }}
                   ></div>
                 </div>
@@ -155,12 +149,12 @@ const Services = () => {
 
               {/* Expandable Features */}
               {expandedService === service.id && (
-                <div className="border-t border-border/50 pt-4 mt-4">
-                  <h4 className="font-orbitron font-semibold text-cyber-yellow mb-3">FEATURES</h4>
+                <div className="border-t border-border pt-4 mt-4">
+                  <h4 className="font-semibold text-primary mb-3">FEATURES</h4>
                   <ul className="space-y-2">
                     {service.features.map((feature, index) => (
-                      <li key={index} className="text-foreground/80 font-tech text-xs flex items-center">
-                        <span className="text-cyber-cyan mr-2">▶</span>
+                      <li key={index} className="text-muted-foreground text-xs flex items-center">
+                        <span className="text-primary mr-2">▶</span>
                         {feature}
                       </li>
                     ))}
@@ -169,14 +163,14 @@ const Services = () => {
               )}
 
               {/* Footer */}
-              <div className="flex justify-between items-center mt-6 pt-4 border-t border-border/30">
+              <div className="flex justify-between items-center mt-6 pt-4 border-t border-border">
                 <div>
-                  <span className="text-muted-foreground font-tech text-xs">PRICE: </span>
-                  <span className="text-cyber-cyan font-tech text-sm font-semibold">${service.pricing}</span>
+                  <span className="text-muted-foreground text-xs">PRICE: </span>
+                  <span className="text-primary text-sm font-semibold">${service.pricing}</span>
                 </div>
                 <div>
-                  <span className="text-muted-foreground font-tech text-xs">DURATION: </span>
-                  <span className="text-cyber-yellow font-tech text-sm font-semibold">{service.duration}</span>
+                  <span className="text-muted-foreground text-xs">DURATION: </span>
+                  <span className="text-primary text-sm font-semibold">{service.duration}</span>
                 </div>
               </div>
             </div>
@@ -186,16 +180,16 @@ const Services = () => {
         {/* Stats Section */}
         <div className="grid md:grid-cols-4 gap-6 mb-16">
           {[
-            { label: 'CLIENTS SERVED', value: '247', color: 'text-cyber-cyan' },
-            { label: 'AI MODELS DEPLOYED', value: '89', color: 'text-cyber-yellow' },
-            { label: 'SUCCESS RATE', value: '97.2%', color: 'text-terminal-green' },
-            { label: 'YEARS EXPERIENCE', value: '12+', color: 'text-cyber-cyan' }
+            { label: 'CLIENTS SERVED', value: '247', color: 'text-primary' },
+            { label: 'AI MODELS DEPLOYED', value: '89', color: 'text-primary' },
+            { label: 'SUCCESS RATE', value: '97.2%', color: 'text-primary' },
+            { label: 'YEARS EXPERIENCE', value: '12+', color: 'text-primary' }
           ].map((stat, index) => (
-            <div key={index} className="box-3d p-6 rounded-lg backdrop-blur-sm text-center">
-              <div className={`text-3xl font-orbitron font-bold ${stat.color} mb-2`}>
+            <div key={index} className="p-6 rounded-lg bg-card border border-border text-center">
+              <div className={`text-3xl font-bold ${stat.color} mb-2`}>
                 {stat.value}
               </div>
-              <div className="text-muted-foreground font-tech text-sm">
+              <div className="text-muted-foreground text-sm">
                 {stat.label}
               </div>
             </div>
@@ -204,18 +198,18 @@ const Services = () => {
 
         {/* CTA Section */}
         <div className="text-center">
-          <div className="box-3d p-8 rounded-lg backdrop-blur-sm mb-8">
-            <h2 className="text-3xl font-orbitron font-bold text-cyber-cyan mb-4">
+          <div className="p-8 rounded-lg bg-card border border-border shadow-lg mb-8">
+            <h2 className="text-3xl font-bold text-primary mb-4">
               READY TO REVOLUTIONIZE?
             </h2>
-            <p className="text-foreground/80 font-tech text-lg leading-relaxed mb-6">
+            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
               Join hundreds of companies that have transformed their operations with our AI solutions.
             </p>
           </div>
           <a href="/contact">
-            <CyberButton variant="cyber" size="lg" className="font-orbitron tracking-wider box-3d">
+            <Button size="lg" className="px-12">
               START YOUR AI JOURNEY
-            </CyberButton>
+            </Button>
           </a>
         </div>
         </div>

@@ -7,66 +7,49 @@
 
 @layer base {
   :root {
-    /* Professional color palette */
+    /* Purple color palette */
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 270 50% 15%;
     
     /* Component colors */
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --card-border: 214 32% 91%;
+    --card-foreground: 270 50% 15%;
+    --card-border: 270 20% 90%;
     
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 270 50% 15%;
     
-    --primary: 221 83% 53%;
+    --primary: 270 70% 55%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 221 83% 63%;
+    --primary-glow: 270 70% 65%;
     
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --secondary-glow: 210 40% 90%;
+    --secondary: 270 30% 96%;
+    --secondary-foreground: 270 50% 15%;
+    --secondary-glow: 270 30% 90%;
     
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 270 30% 96%;
+    --muted-foreground: 270 20% 50%;
     
-    --accent: 210 40% 96%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 270 30% 96%;
+    --accent-foreground: 270 50% 15%;
     
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 221 83% 53%;
+    --border: 270 20% 90%;
+    --input: 270 20% 90%;
+    --ring: 270 70% 55%;
     
     --radius: 0.5rem;
     
     /* Simple gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(221 83% 43%) 100%);
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--muted)) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(270 70% 55%) 0%, hsl(270 70% 45%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(270 30% 96%) 0%, hsl(270 20% 90%) 100%);
     
     /* Animation durations */
     --duration-fast: 0.15s;
     --duration-normal: 0.3s;
     --duration-slow: 0.5s;
-    
-    /* Cyber theme compatibility (for existing components) */
-    --neon-cyan: 221 83% 53%;
-    --neon-yellow: 45 93% 58%;
-    --neon-green: 142 76% 36%;
-    --neon-blue: 221 83% 53%;
-    --terminal-green: 142 76% 36%;
-    --terminal-amber: 45 93% 58%;
-    --terminal-red: 0 84% 60%;
-    --terminal-blue: 221 83% 53%;
-    --cyber-cyan: 221 83% 53%;
-    --cyber-yellow: 45 93% 58%;
-    --cyber-green: 142 76% 36%;
-    --cyber-blue: 221 83% 53%;
-    --matrix-bg: 0 0% 98%;
-    --matrix-grid: 214 32% 91%;
-    --matrix-dot: 214 32% 85%;
   }
 }
 

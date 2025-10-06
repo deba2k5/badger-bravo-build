@@ -1,9 +1,6 @@
 import { Navigation } from '@/components/Navigation';
-import { CyberButton } from '@/components/ui/cyber-button';
-import { CursorTrail } from '@/components/CursorTrail';
 import { Footer } from '@/components/Footer';
-import { ThreeScene } from '@/components/ThreeScene';
-import { HeroCyberGrid } from '@/components/HeroCyberGrid';
+import { Button } from '@/components/ui/button';
 import { useState } from 'react';
 
 interface Project {
@@ -31,7 +28,7 @@ const projects: Project[] = [
     category: 'COMING SOON',
     description: 'COMING SOON',
     technologies: ['COMING SOON'],
-    status: 'research', // Use a valid status
+    status: 'research',
     completion: 0,
     impact: 'COMING SOON',
     client: 'COMING SOON',
@@ -82,7 +79,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
 
-  const categories = ['all', 'COMPUTER_VISION', 'GENERATIVE_AI', 'NATURAL_LANGUAGE'];
+  const categories = ['all', 'COMPUTER VISION', 'GENERATIVE AI', 'NATURAL LANGUAGE'];
 
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
@@ -90,29 +87,26 @@ const Projects = () => {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'text-terminal-green';
-      case 'deployed': return 'text-cyber-cyan';
-      case 'in-progress': return 'text-cyber-yellow';
-      case 'research': return 'text-cyber-blue';
+      case 'completed': return 'text-green-600';
+      case 'deployed': return 'text-primary';
+      case 'in-progress': return 'text-amber-600';
+      case 'research': return 'text-blue-600';
       default: return 'text-foreground';
     }
   };
 
   return (
-    <div className="min-h-screen bg-background relative overflow-x-hidden">
-      <CursorTrail />
-      <ThreeScene />
-      <HeroCyberGrid />
+    <div className="min-h-screen bg-background">
       <Navigation />
       
-      <main className="relative z-10">
+      <main className="pt-20">
         <div className="container mx-auto px-4 py-20">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
+          <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
             AI PROJECTS
           </h1>
-          <p className="text-xl font-tech text-foreground/80 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Explore our portfolio of cutting-edge AI solutions that are transforming industries worldwide.
           </p>
         </div>
@@ -123,10 +117,10 @@ const Projects = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-3 font-tech text-sm tracking-wider transition-all duration-300 box-3d ${
+              className={`px-6 py-3 text-sm tracking-wider transition-all duration-300 rounded-lg border ${
                 selectedCategory === category
-                  ? 'border-cyber-cyan/50 text-cyber-cyan'
-                  : 'text-foreground/80 hover:text-cyber-cyan hover:border-cyber-cyan/30'
+                  ? 'border-primary bg-primary/10 text-primary'
+                  : 'border-border text-muted-foreground hover:text-primary hover:border-primary/30'
               }`}
             >
               {category.toUpperCase()}
@@ -139,36 +133,36 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <div 
               key={project.id}
-              className="box-3d p-6 rounded-lg backdrop-blur-sm hover:scale-105 transition-all duration-300 cursor-pointer"
+              className="p-6 rounded-lg bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 cursor-pointer"
               onClick={() => setSelectedProject(selectedProject === project.id ? null : project.id)}
             >
               {/* Project Header */}
               <div className="flex items-start justify-between mb-4">
                 <div>
-                  <h3 className="text-xl font-orbitron font-semibold text-cyber-cyan mb-1">
+                  <h3 className="text-xl font-semibold text-primary mb-1">
                     {project.title}
                   </h3>
-                  <p className="text-cyber-yellow font-tech text-sm">{project.category}</p>
+                  <p className="text-muted-foreground text-sm">{project.category}</p>
                 </div>
-                <div className={`font-tech text-xs font-semibold ${getStatusColor(project.status)}`}>
-                  {project.status.toUpperCase().replace('-', '_')}
+                <div className={`text-xs font-semibold ${getStatusColor(project.status)}`}>
+                  {project.status.toUpperCase().replace('-', ' ')}
                 </div>
               </div>
 
               {/* Description */}
-              <p className="text-foreground/80 font-tech text-sm leading-relaxed mb-4">
+              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
                 {project.description}
               </p>
 
               {/* Progress Bar */}
               <div className="mb-4">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-muted-foreground font-tech text-xs">COMPLETION</span>
-                  <span className="text-cyber-cyan font-tech text-xs font-semibold">{project.completion}%</span>
+                  <span className="text-muted-foreground text-xs">COMPLETION</span>
+                  <span className="text-primary text-xs font-semibold">{project.completion}%</span>
                 </div>
                 <div className="w-full bg-muted rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-cyber-cyan to-terminal-green h-2 rounded-full transition-all duration-1000"
+                    className="bg-primary h-2 rounded-full transition-all duration-1000"
                     style={{ width: `${project.completion}%` }}
                   ></div>
                 </div>
@@ -176,15 +170,15 @@ const Projects = () => {
 
               {/* Expandable Details */}
               {selectedProject === project.id && (
-                <div className="border-t border-border/50 pt-4 mt-4 space-y-4">
+                <div className="border-t border-border pt-4 mt-4 space-y-4">
                   {/* Technologies */}
                   <div>
-                    <h4 className="font-orbitron font-semibold text-cyber-yellow mb-2">TECHNOLOGIES</h4>
+                    <h4 className="font-semibold text-primary mb-2">TECHNOLOGIES</h4>
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech, index) => (
                         <span 
                           key={index}
-                          className="px-2 py-1 bg-muted rounded text-cyber-cyan font-tech text-xs"
+                          className="px-2 py-1 bg-muted rounded text-primary text-xs"
                         >
                           {tech}
                         </span>
@@ -194,25 +188,25 @@ const Projects = () => {
 
                   {/* Metrics */}
                   <div>
-                    <h4 className="font-orbitron font-semibold text-cyber-yellow mb-2">METRICS</h4>
+                    <h4 className="font-semibold text-primary mb-2">METRICS</h4>
                     <div className="grid grid-cols-3 gap-4">
                       <div className="text-center">
-                        <div className="text-cyber-cyan font-tech text-lg font-semibold">
+                        <div className="text-primary text-lg font-semibold">
                           {project.metrics.performance}%
                         </div>
-                        <div className="text-muted-foreground font-tech text-xs">PERFORMANCE</div>
+                        <div className="text-muted-foreground text-xs">PERFORMANCE</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-cyber-yellow font-tech text-lg font-semibold">
+                        <div className="text-primary text-lg font-semibold">
                           {project.metrics.accuracy}%
                         </div>
-                        <div className="text-muted-foreground font-tech text-xs">ACCURACY</div>
+                        <div className="text-muted-foreground text-xs">ACCURACY</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-terminal-green font-tech text-lg font-semibold">
+                        <div className="text-primary text-lg font-semibold">
                           {project.metrics.efficiency}%
                         </div>
-                        <div className="text-muted-foreground font-tech text-xs">EFFICIENCY</div>
+                        <div className="text-muted-foreground text-xs">EFFICIENCY</div>
                       </div>
                     </div>
                   </div>
@@ -220,14 +214,14 @@ const Projects = () => {
               )}
 
               {/* Footer */}
-              <div className="flex justify-between items-center mt-6 pt-4 border-t border-border/30">
+              <div className="flex justify-between items-center mt-6 pt-4 border-t border-border">
                 <div>
-                  <span className="text-muted-foreground font-tech text-xs">CLIENT: </span>
-                  <span className="text-cyber-cyan font-tech text-sm font-semibold">{project.client}</span>
+                  <span className="text-muted-foreground text-xs">CLIENT: </span>
+                  <span className="text-primary text-sm font-semibold">{project.client}</span>
                 </div>
                 <div>
-                  <span className="text-muted-foreground font-tech text-xs">YEAR: </span>
-                  <span className="text-cyber-yellow font-tech text-sm font-semibold">{project.year}</span>
+                  <span className="text-muted-foreground text-xs">YEAR: </span>
+                  <span className="text-primary text-sm font-semibold">{project.year}</span>
                 </div>
               </div>
             </div>
@@ -237,15 +231,15 @@ const Projects = () => {
         {/* Impact Section */}
         <div className="grid md:grid-cols-3 gap-6 mb-16">
           {[
-            { label: 'PROJECTS COMPLETED', value: '47', color: 'text-cyber-cyan' },
-            { label: 'CLIENTS SERVED', value: '23', color: 'text-cyber-yellow' },
-            { label: 'AI MODELS DEPLOYED', value: '89', color: 'text-terminal-green' }
+            { label: 'PROJECTS COMPLETED', value: '47', color: 'text-primary' },
+            { label: 'CLIENTS SERVED', value: '23', color: 'text-primary' },
+            { label: 'AI MODELS DEPLOYED', value: '89', color: 'text-primary' }
           ].map((stat, index) => (
-            <div key={index} className="box-3d p-6 rounded-lg backdrop-blur-sm text-center">
-              <div className={`text-3xl font-orbitron font-bold ${stat.color} mb-2`}>
+            <div key={index} className="p-6 rounded-lg bg-card border border-border text-center">
+              <div className={`text-3xl font-bold ${stat.color} mb-2`}>
                 {stat.value}
               </div>
-              <div className="text-muted-foreground font-tech text-sm">
+              <div className="text-muted-foreground text-sm">
                 {stat.label}
               </div>
             </div>
@@ -254,18 +248,18 @@ const Projects = () => {
 
         {/* CTA */}
         <div className="text-center">
-          <div className="box-3d p-8 rounded-lg backdrop-blur-sm mb-8">
-            <h2 className="text-3xl font-orbitron font-bold text-cyber-cyan mb-4">
+          <div className="p-8 rounded-lg bg-card border border-border shadow-lg mb-8">
+            <h2 className="text-3xl font-bold text-primary mb-4">
               READY FOR YOUR PROJECT?
             </h2>
-            <p className="text-foreground/80 font-tech text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed">
               Let's discuss how we can bring your AI vision to life.
             </p>
           </div>
           <a href="/contact">
-            <CyberButton variant="cyber" size="lg" className="font-tech tracking-wider">
-              NEURAL_CONNECT
-            </CyberButton>
+            <Button size="lg" className="px-12">
+              GET IN TOUCH
+            </Button>
           </a>
         </div>
         </div>

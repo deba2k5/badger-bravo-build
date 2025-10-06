@@ -1,10 +1,8 @@
 import { Navigation } from '@/components/Navigation';
-import { ThreeScene } from '@/components/ThreeScene';
-import { HeroCyberGrid } from '@/components/HeroCyberGrid';
-import { CursorTrail } from '@/components/CursorTrail';
 import { Footer } from '@/components/Footer';
-import { CyberButton } from '@/components/ui/cyber-button';
 import { BlogCarousel } from '@/components/BlogCarousel';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 const blogPosts = [
   {
@@ -61,27 +59,22 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <div className="min-h-screen bg-background relative overflow-x-hidden">
-      <CursorTrail />
-      <ThreeScene />
-      <HeroCyberGrid />
+    <div className="min-h-screen bg-background">
       <Navigation />
 
-      <main className="relative z-10 pt-20">
+      <main className="pt-20">
         {/* Hero Section */}
         <section className="py-20 px-4">
           <div className="max-w-6xl mx-auto text-center">
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-6xl font-orbitron font-bold text-cyber-cyan mb-4">
+            <h1 className="text-4xl md:text-6xl font-bold text-primary mb-4">
               LATEST
             </h1>
-            <div className="text-6xl md:text-8xl font-black font-orbitron inspire-glow mb-6">
-              NEURAL_UPDATES
+            <div className="text-5xl md:text-7xl font-black text-primary mb-6">
+              BLOG UPDATES
             </div>
-            <p className="text-foreground/80 font-tech text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
               Stay connected to the pulse of AI evolution. Real-time insights from the digital frontier.
             </p>
-          </div>
           </div>
         </section>
 
@@ -95,23 +88,23 @@ const Blog = () => {
         {/* Newsletter Section */}
         <section className="py-20 px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <div className="box-3d p-12 rounded-lg backdrop-blur-sm">
-              <h3 className="text-3xl font-tech font-bold text-cyber-cyan mb-4">
-                NEURAL_SUBSCRIPTION
+            <div className="p-12 rounded-lg bg-card border border-border shadow-lg">
+              <h3 className="text-3xl font-bold text-primary mb-4">
+                SUBSCRIBE
               </h3>
-              <p className="text-foreground/80 font-tech mb-8">
-                Subscribe to receive quantum-encrypted updates directly to your neural interface
+              <p className="text-muted-foreground mb-8">
+                Subscribe to receive updates directly to your inbox
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                <input 
+                <Input 
                   type="email" 
-                  placeholder="neural.email@domain.ai"
-                  className="flex-1 px-4 py-3 bg-background/50 border border-cyber-cyan/30 rounded font-tech text-sm text-foreground"
+                  placeholder="your.email@domain.com"
+                  className="flex-1"
                 />
-                <CyberButton variant="secondary" className="font-tech">
-                  CONNECT
-                </CyberButton>
+                <Button>
+                  SUBSCRIBE
+                </Button>
               </div>
             </div>
           </div>
